@@ -1,24 +1,74 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                  | Type      | Options           |
+| ----------------------- | --------- | ----------------- |
+| name                    | string    | null: false       |
+| email                   | string    | unique: true 　　　|df
+| encrypted_password      | string    | null: false       |df
+| phone_number            | string    | null: false       |
+| birthday                | date      | null: false       |
+| blood_type_id           | integer   | null: false       |
+| start_date              | datetime  | null: false       |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :notes
+- has_many :comments
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## notes テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column                    | Type       | Options                        |
+| ------------------------- | ---------- | ------------------------------ |
+| record_date               | date       | null: false                    |
+| weather                | integer    | null: false                    |
+| responsible_person        | string     | null: false                    |
+| Utilization_time          | time       | null: false                    |
+| body_temperature          | integer    | null: false                    |
+| pulse                     | integer    | null: false                    |
+| blood_pressure            | integer    | null: false                    |
+| Taking_medicine        | integer    | null: false                    |
+| Usage_type                | string     | null: false                    |
+| bathing                   | string     | null: false                    |
+| user                      | references | null: false, foreign_key: true |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :user
+- has_many :comments
+- has_one_attached :image
+
+
+## comments テーブル
+
+| Column                    | Type       | Options                        |
+| ------------------------- | ---------- | ------------------------------ |
+| content                   | text       |                                |
+| user                      | references | null: false, foreign_key: true |
+| note                      | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :note
+
+
+
+## ActiveHash
+
+| active_storage      | 
+| ------------------- | 
+| image               | 
+
+
+## ActiveHash
+
+| model               | 
+| ------------------- | 
+| blood_type          | 
+| weather             | 
+| Taking_medicine     |
