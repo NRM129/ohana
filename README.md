@@ -10,7 +10,7 @@
 | phone_number            | string    | null: false       |
 | birthday                | date      | null: false       |
 | blood_type_id           | integer   | null: false       |
-| start_date              | datetime  | null: false       |
+| start_date              | date      | null: false       |
 
 
 ### Association
