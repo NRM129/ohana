@@ -1,0 +1,41 @@
+<%= render "shared/header" %>
+
+<div class='main'>
+<%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
+  <div class='title-contents'>
+      <div class='dates'>
+        <div class='date_day'>
+          <%= @note.day %>
+        </div>
+        <div class='date_year'>
+          <%= @note.year %>.<%= @note.month %>
+        </div>
+      </div>
+  </div>
+
+<%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
+
+<%# お知らせ  %>
+  <div class='notice-contents'>
+  <h2 class="heading-name">お知らせ</h2>
+      <ul class="messages">
+        <li class="message">
+          <div class="message-date">2019/10/06</div>
+          <div>送迎時間の変更について</div>
+        </li>
+        <li class="message">
+          <div class="message-date">2019/10/03</div>
+          <div>ひな祭りイベントの開催日のお知らせ</div>
+        </li>
+        <li class="message">
+          <div class="message-date">2019/09/27</div>
+          <div>宿泊時の職員体制について</div>
+        </li>
+      </ul>
+  </div>
+<%# お知らせ  %>
+
+<%# 連絡ノート  %>
+
+<%# 連絡ノート  %>
+</div>
