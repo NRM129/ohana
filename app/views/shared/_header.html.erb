@@ -4,8 +4,9 @@
     <%= link_to image_tag("ohana-logo-color.png", class:"ohana-icon"), "/" %>
   </div>
 
-  <div class='nav'>
+  <div class='nav'> 
     <ul class='lists-right'>
+      <li><%= link_to '日誌記入', new_note_path, class: "new-note" %></li>
       <% if user_signed_in? %>
       <li><%= link_to current_user.name, root_path, class: "user-name" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>

@@ -24,14 +24,14 @@
 | Column                    | Type       | Options                        |
 | ------------------------- | ---------- | ------------------------------ |
 | record_date               | date       | null: false                    |
-| weather                | integer    | null: false                    |
+| weather                   | integer    | null: false                    |
 | responsible_person        | string     | null: false                    |
-| Utilization_time          | time       | null: false                    |
-| body_temperature          | integer    | null: false                    |
-| pulse                     | integer    | null: false                    |
-| blood_pressure            | integer    | null: false                    |
-| Taking_medicine        | integer    | null: false                    |
-| Usage_type                | string     | null: false                    |
+| utilization_time          | time       | null: false                    |
+| body_temperature          | integer    |                                |
+| pulse                     | integer    |                                |
+| blood_pressure            | integer    |                                |
+| taking_medicine           | integer    | null: false                    |
+| usage_type                | string     | null: false                    |
 | bathing                   | string     | null: false                    |
 | user                      | references | null: false, foreign_key: true |
 
