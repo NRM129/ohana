@@ -1,0 +1,55 @@
+// .sign_in_main{
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   background-image: image-url('sign_in_top.jpeg');
+//   background-color:rgba(255,255,255,0.8);
+//   background-blend-mode:lighten;
+//   filter: sepia(30%);
+//   background-size: cover;
+// }
+
+.login-btn {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.login-red-btn {
+  border: 2px solid #fff;
+  padding: 8px 20px;
+  color: #fff;
+  background-color: black;
+}
+
+.login-flash-message {
+  text-align: center;
+  color: black;
+}
+
+// .login-text {
+//   //background: hsl(40,30,60);
+//   //border-bottom: .5rem solid white;
+//   color: black;
+//   font-size: 1.5rem;
+//   margin: 15px auto;
+//   max-width: 50%;
+//   padding: .5rem;
+//   text-align: center;
+//   //text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
+//   .fa-stack-1x {
+//     color: white;
+//   }
+// }
+
+// @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+
+
+// .form-wrap{
+//   display: block;
+// }

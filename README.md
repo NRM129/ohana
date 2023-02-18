@@ -19,7 +19,6 @@
 - has_many :comments
 
 
-
 ## notes テーブル
 
 | Column                    | Type       | Options                        |
