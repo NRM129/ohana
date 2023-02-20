@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   def index
     # binding.pry
     @note = Time.now
-    # @notes = Note.all
+    @notes = Note.all
     # @note = Note.find(params[:note_id])
   end
 
@@ -13,7 +13,7 @@ class NotesController < ApplicationController
 
   def create
     # binding.pry
-    @note = Note.all(note_params)
+    @note = Note.new(note_params)
     if @note.save
       redirect_to root_path
     else
@@ -21,12 +21,15 @@ class NotesController < ApplicationController
     end
   end
 
+  def show
+  end
+
 
   private
 
   def note_params
     params.require(:note).permit(:image, :record_date, :weather_id, :responsible_person, :utilization_time, :body_temperature, :pulse,
-                                 :blood_pressure, :taking_medicine, :usage_type_id, :bathing).merge(user_id: current_user.id)
+                                 :blood_pressure, :taking_medicine_id, :usage_type_id, :bathing_id).merge(user_id: current_user.id)
   end
 
 end

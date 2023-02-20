@@ -8,6 +8,6 @@ class BloodType < ActiveHash::Base
     { id: 6, name: '不明・その他' }
   ]
   include ActiveHash::Associations
-  has_many :users
+  # has_many :users
 
 end

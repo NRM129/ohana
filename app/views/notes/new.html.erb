@@ -37,15 +37,16 @@
             <label class="control-label" for="">利用日</label>
             <span class="indispensable">必須</span>
           </div>
-          <input type="date" :record_date, name="今日の日付" value="" class="select-box", placeholder="年 / 月 / 日" />
+          <%# <input type="date" :record_date, name="今日の日付" value="" class="select-box", placeholder="年 / 月 / 日" /> %>
+          <%= f.date_field :record_date, class:"items-text", id:"note-record_date", placeholder:"利用日" %>
 
           <%# 利用時間 %>
           <div class="weight-bold-text">
             <label class="control-label" for="">利用時間</label>
             <span class="indispensable">必須</span>
           </div>
-          <input type="time" :utilization_time, name="利用時間" step="300", value="" class="select-box"/>
-
+          <%# <input type="time" :utilization_time, name="利用時間" step="300", value="" class="select-box"/> %>
+          <%= f.time_field :utilization_time, :minute_step => 10, class:"items-text", id:"note-utilization_time", placeholder:"利用時間" %>
           <%# 天候 %>
           <div class="weight-bold-text">
             天候
@@ -82,28 +83,26 @@
             
 
           <%# 服薬 %>
-          <div class="weight-taking_medicine">
             <div class="weight-bold-text">
-              <p>服薬<br>
+              服薬
+              <span class="indispensable">必須</span>
             </div>
-            <label><input class="radio_type" type="radio" :taking_medicine, name="q2" value="した"> した</label>
-            <label><input class="radio_type" type="radio" :taking_medicine, name="q2" value="していない" checked> していない</label>
-            </p>
-          </div>
+            <%= f.collection_select(:taking_medicine_id, Answer.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+          
 
             <%# 入浴 %>
-          <div class="weight-taking_medicine">
             <div class="weight-bold-text">
-              <p>入浴<br>
+              入浴
+            <span class="indispensable">必須</span>
             </div>
-            <label><input class="radio_type" type="radio" :bathing, name="g1" value="した"> した</label>
-            <label><input class="radio_type" type="radio" :bathing, name="g1" value="していない" checked> していない</label>
-            </p>
-          </div>
+            <%= f.collection_select(:bathing_id, Answer.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+
             <%# 下部ボタン %>
             <div class="sell-btn-contents">
               <%= f.submit "確定" ,class:"sell-btn" %><br>
-              <%=link_to 'もどる', root_path, class:"back-btn" %>
+              <div class="back-btn-contents">
+                <%=link_to 'もどる', root_path, class:"back-btn" %>
+              </div>
             </div>
         </div>
       </div>

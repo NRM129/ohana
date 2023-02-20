@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 2023_02_19_041219) do
     t.integer "body_temperature"
     t.integer "pulse"
     t.integer "blood_pressure"
-    t.integer "taking_medicine", null: false
+    t.integer "taking_medicine_id", null: false
     t.integer "usage_type_id", null: false
-    t.string "bathing", null: false
+    t.integer "bathing_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

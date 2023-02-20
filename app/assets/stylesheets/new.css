@@ -164,7 +164,11 @@
   width: 86%;
   height: 50px;
   font-size: 14px;
-  margin-bottom: 7vh;
+  margin: 35px 0 20px 0;
+}
+
+.back-btn-contents{
+  margin-top: 10px;
 }
 
 .back-btn {

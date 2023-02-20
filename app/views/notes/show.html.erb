@@ -1,0 +1,42 @@
+
+<%# 全体 %>
+<div class="note-show-whole">
+  <%# 画像 %>
+  <div class="note-img">
+  <%= image_tag @note.image, class:"note-box-img" %>
+  </div>
+  <%# 画像 %>
+
+  <%# ノート上部 %>
+  <div class="note-record-top">
+    <div class="note-record-person">
+    【担当者】 <%= @note.responsible_person %>
+    </div>
+    <div class="note-record-weather">
+    <%= @note.record_date %> <%# 利用日 %>
+    <%= @note.weather.name %> <%# 天気予報 %>
+    </div>
+  </div>
+  
+  <%# 表情上部 %>
+  <table>
+    <tr>
+       <th scope="col">利用時間</th>
+      <th scope="col">利用種類</th>
+       <th scope="col">体温</th>
+       <th scope="col">脈拍</th>
+      <th scope="col">血圧</th>
+       <th scope="col">服薬</th>
+      <th scope="col">入浴</th> 
+    </tr>
+    <tr>
+        <td><%= @note.utilization_time %></td>
+        <td><%= @note.usage_type.name %></td>
+        <td><%= @note.body_temperature %></td>
+        <td><%= @note.pulse %></td>
+        <td><%= @note.taking_medicine %></td>
+        <td><%= @note.bathing %></td>
+    </tr>
+ </table>
+
+</div>

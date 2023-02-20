@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :bloodtype
+  # extend ActiveHash::Associations::ActiveRecordExtensions
+  # belongs_to :bloodtype
 
   has_many :notes
 end
