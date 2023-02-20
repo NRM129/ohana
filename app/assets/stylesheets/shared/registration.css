@@ -140,10 +140,11 @@
 .register-btn {
   width: 50%;
   margin: 0 auto;
+  text-align: center;
 }
 
 .register-red-btn {
-  width: 100%;
+  width: 50%;
   background: black;
   border: 1px solid black;
   color: #fff;

@@ -36,6 +36,15 @@
 <%# お知らせ  %>
 
 <%# 連絡ノート  %>
+  <ul class='item-lists'>
 
+    <div class='note-contents'>
+      <%= @note.each do |note| %>
+      <li class='list'>
+      <%= image_tag note.image, class: "note-img" %>
+      </li>
+      <% end %>
+    </div>
+  </ul>
 <%# 連絡ノート  %>
 </div>

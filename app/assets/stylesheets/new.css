@@ -40,6 +40,7 @@
   font-weight: bold;
   min-width: 170px;
   margin-bottom: 10px;
+  margin: 20px 0px 5px 0;
 }
 
 .select-box {
@@ -49,9 +50,11 @@
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
+  padding: 16px 16px 8px;
+  height: 46px;
 }
 
-.question {
+/* .question {
   width: 20px;
   height: 20px;
   border-radius: 10px;
@@ -62,11 +65,11 @@
   line-height: 20px;
   text-decoration: none;
   margin-left: 5px;
-}
+} */
 
-.question-text {
+/* .question-text {
   display: flex;
-}
+} */
 
 /* /共通 */
 
@@ -109,6 +112,9 @@
 
 /* /商品名と商品説明 */
 
+
+
+
 /* 商品の詳細など */
 .items-detail {
   display: flex;
@@ -121,55 +127,27 @@
   padding: 2vh 0;
 }
 
-.select-box {
-  margin: 2vh 0;
+.weight-taking_medicine{
+  margin-bottom: 30px;
 }
+
+/* .select-box {
+  margin: 2vh 0;
+} */
 
 /* /商品の詳細など */
 
-/* 販売価格 */
-.sell-price {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
-.price-content {
-  width: 300px;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.price-text {
-  /* min-width: 170px; */
-  display: flex;
-  align-items: center;
-}
-
-.sell-yen {
-  font-size: 18px;
-}
-
-.price-input {
-  height: 30px;
-  text-align: right;
-  padding-right: 10px;
-}
-
-/* /販売価格 */
 
 /* 注意書き */
-.caution {
+/* .caution {
   padding: 5vh 0;
 }
 
 .sentence>a {
   color: #0099e8;
   text-decoration: none;
-}
+} */
 
 /* /注意書き */
 
@@ -183,10 +161,10 @@
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
-  width: 100%;
+  width: 86%;
   height: 50px;
   font-size: 14px;
-  margin-bottom: 4vh;
+  margin-bottom: 7vh;
 }
 
 .back-btn {
@@ -195,7 +173,9 @@
   color: #fff;
   padding: 15px 35%;
   text-decoration: none;
+
 }
+
 
 /* /下部ボタン */
 
