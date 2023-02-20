@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string   :encrypted_password, null: false, default: ""
       t.string   :phone_number
       t.date     :birthday
-      t.integer  :blood_type
+      t.integer  :blood_type_id
       t.date     :start_date
 
       ## Recoverable

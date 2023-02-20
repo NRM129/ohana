@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_18_125652) do
+ActiveRecord::Schema.define(version: 2023_02_19_041219) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,21 +33,31 @@ ActiveRecord::Schema.define(version: 2023_02_18_125652) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "blood_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "record_date", null: false
-    t.integer "weather", null: false
+    t.integer "weather_id", null: false
     t.string "responsible_person", null: false
     t.time "utilization_time", null: false
     t.integer "body_temperature"
     t.integer "pulse"
     t.integer "blood_pressure"
     t.integer "taking_medicine", null: false
-    t.string "usage_type", null: false
+    t.string "usage_type_id", null: false
     t.string "bathing", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
+  create_table "usage_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,7 +66,7 @@ ActiveRecord::Schema.define(version: 2023_02_18_125652) do
     t.string "encrypted_password", default: "", null: false
     t.string "phone_number"
     t.date "birthday"
-    t.integer "blood_type"
+    t.integer "blood_type_id"
     t.date "start_date"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -65,6 +75,11 @@ ActiveRecord::Schema.define(version: 2023_02_18_125652) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "weathers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

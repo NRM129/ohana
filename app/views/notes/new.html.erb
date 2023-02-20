@@ -1,1 +1,116 @@
-test
+<div class="note-sell-contents">
+
+  <%= render "shared/second-header"%>
+
+  <%# <div class='form-wrap'> %>
+    <div class="note-sell-main">
+      <%= form_with model: @note, local: true do |f| %>
+
+      <%# 画像アップロード %>
+        <div class="img-upload">
+          <div class="weight-bold-text">
+            写真アップロード
+          </div>
+          <div class="click-upload">
+            <%= f.file_field :image, id:"note-image" %>
+          </div>
+        </div>
+      <%# 画像アップロード %>
+      <div class="items-detail">
+        <div class="form">
+
+          <%# 担当者 %>
+          <div class="weight-bold-text">
+              担当者
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :responsible_person, class:"items-text", id:"item-name", placeholder:"本日の担当者名", maxlength:"10" %>
+          
+          <%# 利用種類 %>
+          <div class="weight-bold-text">
+            ご利用種類
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:usage_type_id, UsageType.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+
+           <%# 利用日 %>
+          <div class="weight-bold-text">
+            <label class="control-label" for="">利用日</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <input type="date" :record_date, name="今日の日付" value="" class="select-box", placeholder="年 / 月 / 日" />
+
+          <%# 利用時間 %>
+          <div class="weight-bold-text">
+            <label class="control-label" for="">利用時間</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <input type="time" :utilization_time, name="利用時間" step="300", value="" class="select-box"/>
+
+          <%# 天候 %>
+          <div class="weight-bold-text">
+            天候
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:weather_id, Weather.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+
+
+            
+
+          
+          <%# 体温 %>
+          <div class="weight-bold-text">
+              体温
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :body_temperature, class:"items-text", id:"item-name", placeholder:"36.0", maxlength:"6" %>
+            
+
+          <%# 脈拍 %>
+          <div class="weight-bold-text">
+              脈拍
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :pulse, class:"items-text", id:"item-name", placeholder:"90", maxlength:"3" %>
+            
+
+          <%# 血圧 %>
+          <div class="weight-bold-text">
+              血圧
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :blood_pressure, class:"items-text", id:"item-name", placeholder:"115 / 75", maxlength:"10" %>
+            
+
+          <%# 服薬 %>
+          <div class="weight-taking_medicine">
+            <div class="weight-bold-text">
+              <p>服薬<br>
+            </div>
+            <label><input class="radio_type" type="radio" :taking_medicine, name="q2" value="した"> した</label>
+            <label><input class="radio_type" type="radio" :taking_medicine, name="q2" value="していない" checked> していない</label>
+            </p>
+          </div>
+
+            <%# 入浴 %>
+          <div class="weight-taking_medicine">
+            <div class="weight-bold-text">
+              <p>入浴<br>
+            </div>
+            <label><input class="radio_type" type="radio" :bathing, name="g1" value="した"> した</label>
+            <label><input class="radio_type" type="radio" :bathing, name="g1" value="していない" checked> していない</label>
+            </p>
+          </div>
+            <%# 下部ボタン %>
+            <div class="sell-btn-contents">
+              <%= f.submit "確定" ,class:"sell-btn" %><br>
+              <%=link_to 'もどる', root_path, class:"back-btn" %>
+            </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <%# </div> %>
+</div>
+
+<%= render "shared/second-footer" %>
