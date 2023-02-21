@@ -56,5 +56,65 @@
 .message-date {
   padding-right: 40px;
 }
-
 /* お知らせ */
+
+/* 画像 */
+.note-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.note-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.note-contents>.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.note-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.note-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+.list li{
+  display: inline;
+}
+
+.note-img-content {
+  position: relative;
+}
+
+.note-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+p{
+  position: absolute;
+  bottom: 3px;
+  right: 0;
+  font-size:15px;
+  color: black;
+  padding:0;
+  margin:0;
+}
+
+/* 画像 */

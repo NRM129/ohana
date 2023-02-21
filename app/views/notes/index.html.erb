@@ -36,15 +36,24 @@
 <%# お知らせ  %>
 
 <%# 連絡ノート  %>
-  <ul class='item-lists'>
-
-    <div class='note-contents'>
-      <%= @note.each do |note| %>
-      <li class='list'>
-      <%= image_tag note.image, class: "note-img" %>
-      </li>
-      <% end %>
+  <div class='note-contents'>
+    <h2 class='title'>ピックアップカテゴリー</h2>
+    <div class="subtitle" >
+      新規投稿商品
     </div>
-  </ul>
+    <ul class='note-lists'>
+
+      <% @notes.each do |note| %>
+        <li class='list'>
+          <%= link_to note_path(note.id) do %>
+          <div class='note-img-content'>
+            <%= image_tag note.image, class: "note-img" %>
+             <p><%=note.record_date.month %>/<%=note.record_date.day %></p>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+
+  </div>
 <%# 連絡ノート  %>
 </div>

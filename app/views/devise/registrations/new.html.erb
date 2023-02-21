@@ -75,7 +75,8 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-name-wrap'>
-      <%= f.text_field :blood_type, class:"input-name", id:"blood_type", placeholder:"例) O型" %>
+      <%= f.text_field :blood_type_id, class:"input-name", id:"blood_type", placeholder:"例) O型" %>
+      <%# <%= f.collection_select(:blood_type_id, BloodType.all, :id, :name, {}, {class:"input-name", id:"blood_type"}) %>
     </div>
   </div>
   <div class="form-group">
