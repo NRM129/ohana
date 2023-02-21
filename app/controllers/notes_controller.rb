@@ -3,7 +3,7 @@ class NotesController < ApplicationController
     # binding.pry
     @note = Time.now
     @notes = Note.all
-    # @note = Note.find(params[:note_id])
+    
   end
 
   def new
@@ -22,6 +22,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    @note = Note.find(params[:id])
   end
 
 

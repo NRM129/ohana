@@ -2,7 +2,8 @@ class Note < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :weather
   belongs_to :usage_type
-  belongs_to :answer
+  belongs_to :taking_medicine
+  belongs_to :bathing
 
   belongs_to :user
   has_one_attached :image

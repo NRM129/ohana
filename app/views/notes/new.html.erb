@@ -87,7 +87,7 @@
               服薬
               <span class="indispensable">必須</span>
             </div>
-            <%= f.collection_select(:taking_medicine_id, Answer.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+            <%= f.collection_select(:taking_medicine_id, TakingMedicine.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
           
 
             <%# 入浴 %>
@@ -95,7 +95,7 @@
               入浴
             <span class="indispensable">必須</span>
             </div>
-            <%= f.collection_select(:bathing_id, Answer.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+            <%= f.collection_select(:bathing_id, Bathing.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
 
             <%# 下部ボタン %>
             <div class="sell-btn-contents">

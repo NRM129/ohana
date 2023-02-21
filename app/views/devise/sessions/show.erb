@@ -20,7 +20,7 @@
   
   <%# 表情上部 %>
   <table>
-    <tr bgcolor="#ffffc0">
+    <tr>
        <th scope="col">利用時間</th>
       <th scope="col">利用種類</th>
        <th scope="col">体温</th>
@@ -30,49 +30,13 @@
       <th scope="col">入浴</th> 
     </tr>
     <tr>
-        <td><%= @note.utilization_time.hour %>:<%= @note.utilization_time.min %></td>
+        <td><%= @note.utilization_time %></td>
         <td><%= @note.usage_type.name %></td>
         <td><%= @note.body_temperature %></td>
-        <td><%= @note.pulse %></td>
-        <td><%= @note.blood_pressure %></td>
+        <td><%= @note.pulse.name %></td>
         <td><%= @note.taking_medicine.name %></td>
         <td><%= @note.bathing.name %></td>
     </tr>
-  </table>
-  <%# 表情上部 %>
-
-  <%# 献立 %>
-   <table>
-  	 	<tr bgcolor="#ffffc0">  
-      <td colspan="2"rowspan="2" >今日の献立</td>     
-        <td colspan="2">摂取量</td>      
-		 </tr>
-    	<tr bgcolor="#ffffc0">
-        <th colspan="1">主</th>
-        <th colspan="1">副</th>
-    	</tr>
-
-    <%# 朝食 %>
-    <tr>
-        <th scope="row">朝</th>
-        <td>パン、　牛乳</td>
-        <td>8</td>
-      	 <td>10</td>
-    </tr>
-    <%# 昼食 %>
-    <tr>
-        <th scope="row">昼</th>
-        <td>ご飯、　味噌汁、　ほうれん草</td>
-        <td>7</td>
-        <td>10</td>
-    </tr>
-    <%# 夕食 %>
-  	<tr>
-        <th scope="row">夕</th>
-        <td>カレー、サラダ</td>
-        <td>6</td>
-        <td>10</td>
-    </tr>
-  <%# 献立 %>
+ </table>
 
 </div>

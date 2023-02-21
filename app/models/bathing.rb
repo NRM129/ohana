@@ -1,4 +1,4 @@
-class Answer < ActiveHash::Base
+class Bathing < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: 'した' },
