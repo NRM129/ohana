@@ -109,9 +109,28 @@
       </tr>
       <tr width="80" height="100">
           <td width="50%"><%= @note.diary %></td>
-          <td width="50%">家族コメント</td>
+          <td width="50%">  </td>
       </tr>
     </table>
-    <%# コメント %>
+          <%# コメント %>
+          <div class="container">
+            <% if user_signed_in? %>
+              <%= form_with(model: [@note, @comment], local: true) do |form| %>
+                <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+                <%= form.submit "コメントする" %>
+              <% end %>
+              <% else %>
+                <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+                </strong>
+              <% end %>
+              <div class="comments">
+              <h4>＜コメント一覧＞</h4>
+              <% @comments.each do |comment| %>
+                <%# <p> %>
+                  <%= comment.text %>
+                <%# </p> %>
+              <% end %>
+          </div>
+          <%# コメント %>
   </div>
 </div>
