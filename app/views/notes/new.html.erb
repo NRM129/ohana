@@ -97,6 +97,13 @@
             </div>
             <%= f.collection_select(:bathing_id, Bathing.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
 
+            <%# 日記 %>
+          <div class="weight-bold-text">
+              担当者からのコメント
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :diary, class:"diary-text", id:"item-name", placeholder:"今日の出来事" %>
+
             <%# 下部ボタン %>
             <div class="sell-btn-contents">
               <%= f.submit "確定" ,class:"sell-btn" %><br>

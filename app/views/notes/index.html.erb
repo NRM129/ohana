@@ -1,19 +1,16 @@
 <%= render "shared/header" %>
 
 <div class='main'>
-<%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
   <div class='title-contents'>
       <div class='dates'>
         <div class='date_day'>
-          <%= @note.day %>
+          <%= @time.day %>
         </div>
         <div class='date_year'>
-          <%= @note.year %>.<%= @note.month %>
+          <%= @time.year %>.<%= @time.month %>
         </div>
       </div>
   </div>
-
-<%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
 
 <%# お知らせ  %>
   <div class='notice-contents'>
