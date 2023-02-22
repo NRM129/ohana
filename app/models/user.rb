@@ -9,4 +9,5 @@ class User < ApplicationRecord
   # belongs_to :bloodtype
 
   has_many :notes
+  has_many :comments
 end
