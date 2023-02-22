@@ -1,136 +1,137 @@
 <%= render "shared/header" %>
 
-<div class='main'>
-  <div class='title-contents'>
-      <div class='dates'>
-        <div class='date_day'>
-          <%= @time.day %>
-        </div>
-        <div class='date_year'>
-          <%= @time.year %>.<%= @time.month %>
-        </div>
-      </div>
-  </div>
-
-
 <%# 全体 %>
 <div class="note-show-whole">
   <div class="note-show-adjustment">
 
-<%# 編集・削除 %>
-  <% if user_signed_in? %>
-      <% if current_user == @note.user%>
-        <%= link_to "商品の編集", edit_note_path(@note.id), method: :get, class: "note-red-btn" %>
-        <p class="or-text">or</p>
-        <%= link_to "削除",note_path(@note.id), method: :delete, class:"note-destroy" %>
-      <% end %>
-    <% end %>
-    <%# 編集・削除 %>
+
 
     <%# 画像 %>
-    <div class="note-img">
-    <%= image_tag @note.image, class:"note-box-img" %>
-    </div>
-    <%# 画像 %>
+      <div class="note-show-img">
+      <%= image_tag @note.image, class:"note-box-img" %>
+      </div>
+      <%# 画像 %>
 
     <%# ノート上部 %>
-    <div class="note-record-top">
-      <div class="note-record-person">
-      【担当者】 <%= @note.responsible_person %>
-      </div>
-      <div class="note-record-weather">
-      <%= @note.record_date %> <%# 利用日 %>
-      <%= @note.weather.name %> <%# 天気予報 %>
-      </div>
-    </div>
-    
-    <%# 表情上部 %>
-    <table>
-      <tr bgcolor="#ffffc0">
-        <th scope="col">利用時間</th>
-        <th scope="col">利用種類</th>
-        <th scope="col">体温</th>
-        <th scope="col">脈拍</th>
-        <th scope="col">血圧</th>
-        <th scope="col">服薬</th>
-        <th scope="col">入浴</th> 
-      </tr>
-      <tr>
-          <td><%= @note.utilization_time.hour %>:<%= @note.utilization_time.min %></td>
-          <td><%= @note.usage_type.name %></td>
-          <td><%= @note.body_temperature %></td>
-          <td><%= @note.pulse %></td>
-          <td><%= @note.blood_pressure %></td>
-          <td><%= @note.taking_medicine.name %></td>
-          <td><%= @note.bathing.name %></td>
-      </tr>
-    </table>
-    <%# 表情上部 %>
+    <div class="show-whole">
+      <div class="note-contents-top">
+          <div class="note-record-weather">
+          <%= @note.record_date %> <%# 利用日 %>
+          <%= @note.weather.name %> <%# 天気予報 %>
+        </div>
 
-    <%# 献立 %>
-    <table>
-        <tr bgcolor="#ffffc0">  
-        <td colspan="2"rowspan="2" >今日の献立</td>     
-          <td colspan="2">摂取量</td>      
-      </tr>
-        <tr bgcolor="#ffffc0">
-          <th colspan ="1" width="15%">主</th>
-          <th colspan="1" width="15%">副</th>
+        <%# 編集・削除 %>
+        <div class="change-content">
+        <% if user_signed_in? %>
+          <% if current_user == @note.user%>
+            <%= link_to "商品の編集", edit_note_path(@note.id), method: :get, class: "note-change-btn" %>
+            <%= link_to "　 削除 　",note_path(@note.id), method: :delete, class:"note-destroy-btn" %>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+        <%# 編集・削除 %>
+      <%# 表情上部 %>
+      <table width="100%" height="100">
+        <tr bgcolor="#f5f5f5">
+          <td scope="col">担当者</td>
+          <td scope="col">利用時間</td>
+          <td scope="col">利用種類</td>
+          <td scope="col">体温</td>
+          <td scope="col">脈拍</td>
+          <td scope="col">血圧</td>
+          <td scope="col">服薬</td>
+          <td scope="col">入浴</td> 
         </tr>
+        <tr bgcolor="white">
+            <td><%= @note.responsible_person %>
+            <td><%= @note.utilization_time.hour %>:<%= @note.utilization_time.min %></td>
+            <td><%= @note.usage_type.name %></td>
+            <td><%= @note.body_temperature %></td>
+            <td><%= @note.pulse %></td>
+            <td><%= @note.blood_pressure %></td>
+            <td><%= @note.taking_medicine.name %></td>
+            <td><%= @note.bathing.name %></td>
+        </tr>
+      </table>
+      <%# 表情上部 %>
 
-      <%# 朝食 %>
-      <tr>
-          <th scope="row" width="15%">朝</th>
-          <td>パン、　牛乳</td>
-          <td>8</td>
-          <td>10</td>
-      </tr>
-      <%# 昼食 %>
-      <tr>
-          <th scope="row" width="15%">昼</th>
-          <td>ご飯、　味噌汁、　ほうれん草</td>
-          <td>7</td>
-          <td>10</td>
-      </tr>
-      <%# 夕食 %>
-      <tr>
-          <th scope="row" width="15%">夕</th>
-          <td>カレー、サラダ</td>
-          <td>6</td>
-          <td>10</td>
-      </tr>
-    <%# 献立 %>
+      <%# 献立 %>
+      <table width="100%" height="150">
+          <tr bgcolor="#f5f5f5">  
+            <td colspan="2"rowspan="2" >今日の献立</td>     
+            <td colspan="2">摂取量</td>      
+        </tr>
+          <tr bgcolor="#f5f5f5">
+            <td colspan ="1" width="15%">主</td>
+            <td colspan="1" width="15%">副</td>
+          </tr>
 
-    <%# コメント %>
-    <table>
-      <tr bgcolor="#ffffc0" height="25"> 
-          <th scope="col">施設より</th>
-          <th scope="col">ご家族より</th>
-      </tr>
-      <tr width="80" height="100">
-          <td width="50%"><%= @note.diary %></td>
-          <td width="50%">  </td>
-      </tr>
-    </table>
-          <%# コメント %>
-          <div class="container">
-            <% if user_signed_in? %>
-              <%= form_with(model: [@note, @comment], local: true) do |form| %>
-                <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-                <%= form.submit "コメントする" %>
-              <% end %>
-              <% else %>
-                <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
-                </strong>
-              <% end %>
-              <div class="comments">
-              <h4>＜コメント一覧＞</h4>
-              <% @comments.each do |comment| %>
-                <%# <p> %>
-                  <%= comment.text %>
-                <%# </p> %>
-              <% end %>
-          </div>
-          <%# コメント %>
+        <%# 朝食 %>
+        <tr bgcolor="white">
+            <td scope="row" width="15%">朝</td>
+            <th>パン、　牛乳</th>
+            <td>8</td>
+            <td>10</td>
+        </tr>
+        <%# 昼食 %>
+        <tr bgcolor="white">
+            <td scope="row" width="15%">昼</td>
+            <th>ご飯、　味噌汁、　ほうれん草</th>
+            <td>7</td>
+            <td>10</td>
+        </tr>
+        <%# 夕食 %>
+        <tr bgcolor="white">
+            <td scope="row" width="15%">夕</td>
+            <th>カレー、サラダ</th>
+            <td>6</td>
+            <td>10</td>
+        </tr>
+      <%# 献立 %>
+
+      <%# コメント %>
+      <table width="100%" height="200">
+        <tr bgcolor="#f5f5f5" height="25"> 
+            <td scope="col">施設より</td>
+            <%# <td scope="col">ご家族より</td> %>
+        </tr>
+        <tr bgcolor="white" width="80" height="100">
+            <th vAlign=top ><%= @note.diary %></th>
+            <%# <th vAlign=top width="50%">  </th> %>
+        </tr>
+      </table>
+
+      <%# ご家族コメント表示 %>
+      <div class="comments">
+      <table width="100%" height="200">
+        <tr bgcolor="#f5f5f5" height="25"> 
+            <td scope="col">ご家族より</td>
+        </tr>
+        <tr bgcolor="white" width="80" height="100">
+            <th vAlign=top >
+            <% @comments.each do |comment| %>
+              <%= comment.text %>
+              <br>
+            <% end %>
+            </th>
+        </tr>
+      </table>
+      </div>
+      <%# ご家族コメント表示 %>
+          <%# ご家族記入欄 %>
+      <div class="container">
+        <% if user_signed_in? %>
+          <%= form_with(model: [@note, @comment], local: true) do |form| %>
+            <%= form.text_area :text, size: "50%x0", placeholder: "コメントする", rows: "5" %>
+            <%= form.submit "コメントする" %>
+          <% end %>
+          <% else %>
+            <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+            </strong>
+        <% end %>
+      </div> 
+      <%# ご家族記入欄 %>
+    </div>
   </div>
 </div>
