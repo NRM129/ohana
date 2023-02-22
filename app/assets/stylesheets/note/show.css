@@ -28,7 +28,7 @@ td {
 }
 
 tr:nth-child(even) {
-  background-color: ##FFFFF0;
+  background-color: #FFFFF0;
 }
 
 /* th[scope='col'] {
