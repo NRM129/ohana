@@ -16,6 +16,17 @@
 <%# 全体 %>
 <div class="note-show-whole">
   <div class="note-show-adjustment">
+
+<%# 編集・削除 %>
+  <% if user_signed_in? %>
+      <% if current_user == @note.user%>
+        <%= link_to "商品の編集", edit_note_path(@note.id), method: :get, class: "note-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除",note_path(@note.id), method: :delete, class:"note-destroy" %>
+      <% end %>
+    <% end %>
+    <%# 編集・削除 %>
+
     <%# 画像 %>
     <div class="note-img">
     <%= image_tag @note.image, class:"note-box-img" %>

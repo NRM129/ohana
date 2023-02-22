@@ -1,18 +1,18 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_time, only: [:index, :show]
+
+
   def index
-    # binding.pry
-    @time = Time.now
     @notes = Note.all
-    
   end
 
   def new
-    # binding.pry
     @note = Note.new
   end
 
   def create
-    # binding.pry
     @note = Note.new(note_params)
     if @note.save
       redirect_to root_path
@@ -22,9 +22,24 @@ class NotesController < ApplicationController
   end
 
   def show
-    @time = Time.now
-    @note = Note.find(params[:id])
   end
+
+  def edit
+  end
+
+  def update
+    if @note.update(note_params)
+      redirect_to note_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @note.destroy
+    redirect_to root_path
+  end
+
 
 
   private
@@ -32,6 +47,15 @@ class NotesController < ApplicationController
   def note_params
     params.require(:note).permit(:image, :record_date, :weather_id, :responsible_person, :utilization_time, :body_temperature, :pulse,
                                  :blood_pressure, :taking_medicine_id, :usage_type_id, :bathing_id, :diary).merge(user_id: current_user.id)
+  end
+
+
+  def set_time
+    @time = Time.now
+  end
+
+  def set_note
+    @note = Note.find(params[:id])
   end
 
 end
