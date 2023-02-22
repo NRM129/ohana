@@ -33,6 +33,7 @@
 | taking_medicine           | integer    | null: false                    |
 | usage_type_id             | string     | null: false                    |
 | bathing                   | string     | null: false                    |
+| diary                     | text       | null: false                    |
 | user                      | references | null: false, foreign_key: true |
 
 ### Association

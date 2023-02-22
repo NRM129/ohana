@@ -10,7 +10,8 @@ class CreateNotes < ActiveRecord::Migration[6.0]
       t.integer     :blood_pressure
       t.integer     :taking_medicine_id,   null: false
       t.integer     :usage_type_id,        null: false
-      t.integer     :bathing_id,              null: false
+      t.integer     :bathing_id,           null: false
+      t.text        :diary,                null: false
       t.references  :user,                 null: false, foreign_key: true
 
       t.timestamps

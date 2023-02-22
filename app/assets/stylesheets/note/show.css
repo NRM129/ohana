@@ -1,3 +1,22 @@
+
+/* 全体 */
+
+/* .note-show-whole-all{
+  display: flex;
+} */
+
+.note-show-whole{
+  height: 100vh;
+  width: 100vw;
+}
+
+.note-show-adjustment{
+  width: 80%;
+}
+
+
+
+/* 表 */
 td,
 th {
   border: 1px solid rgb(190, 190, 190);
