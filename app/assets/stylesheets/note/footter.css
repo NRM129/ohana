@@ -1,0 +1,12 @@
+.footter{
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(47, 23, 15, 0.5);
+}
+
+.footter-text-wrap{
+  color: #f6e1c5;
+}

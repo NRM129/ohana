@@ -5,7 +5,10 @@ class NotesController < ApplicationController
 
 
   def index
-    @notes = Note.all
+    # binding.pry
+    # @notes = Note.all
+    @first_note_date = Note.order(record_date: :DESC).first
+    @notes = Note.order(record_date: :DESC)
   end
 
   def new

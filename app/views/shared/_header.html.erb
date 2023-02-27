@@ -1,26 +1,21 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
-<header class='top-page-header'>
-  <div class='search-bar-contents'>
-    <%= link_to image_tag("ohana-logo-color.png", class:"ohana-icon"), "/" %>
-  </div>
-
-  <div class='nav'> 
-    <ul class='lists-right'>
-      <li><%= link_to '登録情報', class: "notice" %></li>
-
-      <li><%= link_to 'ノート記入', new_note_path, class: "new-note" %></li>
-
-      <li><%= link_to 'お知らせ', class: "notice" %></li>
-
-      <% if user_signed_in? %>
-      <li><%= link_to current_user.name, root_path, class: "user-name" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-      <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <% end %>
-    </ul>
+<header>
+  <div class="header_top">
+    <%# <div class="logo"> %>
+      <%# <%= link_to image_tag("ohana-logo-mark.png", class:"ohana-icon"), "/" %> 
+    <%# </div> %>
+    <nav>
+      <ul>
+        <li><%= link_to 'トップページ', root_path, class: "notice" %></li>
+          <li><%= link_to 'ノート記入', new_note_path, class: "new-note" %></li>
+          <% if user_signed_in? %>
+          <li> <%= link_to 'ノート一覧', '#', class: "show-page" %></li>
+          <%# <li><%= link_to current_user.name, root_path, class: "user-name" %>
+          <li> <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+          <li> <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+          <% end %>
+    </nav>
   </div>
 </header>
-
-  

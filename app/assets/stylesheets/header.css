@@ -3,72 +3,71 @@
   /* background-color: #FFFAF0; */
 }
 
-.top-page-header {
-  width: 100vw;
-  padding: 2vh 10vw;
-  display: flex;
-  flex-direction: column;
+.header {
+  position: -webkit-sticky;
+  position:         sticky;
+  top: 0;
 }
 
-.search-bar-contents {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.logo_img{
+  /* width: 40%; */
+  max-width: 100%;
+  height: auto;
 }
 
 .ohana-icon {
-  width: 15vw;
-  margin-right: 10vw;
+  width: 10vw;
 }
 
-.nav {
-  font-size: 18px;
+/* ****************************** */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header_top {
   display: flex;
-  justify-content: right;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFF0;
+  padding: 30px;
 }
 
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
+.logo {
+  flex: 1;
+  text-align: left;
 }
 
-.brand-list {
-  text-decoration: none;
-  color: #333333;
+.logo img {
+  max-width: 100%;
+  height: auto;
 }
 
-.lists-right {
+nav ul {
   display: flex;
   list-style: none;
-  align-items: flex-end;
 }
 
-
-.user-name {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-weight: bold;
+nav li {
+  margin-left: 2rem;
 }
 
-
-.logout {
-  text-decoration: none;
-  color: #333333;
+nav li:first-child {
+  margin-left: 0;
 }
 
-.login {
+nav a {
+  color: #333;
   text-decoration: none;
-  /* line-height: 32px; */
-  margin-right: 3vw;
-  color: #333333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
 }
 
-.sign-up {
-  text-decoration: none;
-  color: #333333;
+nav a:hover {
+  background-color: #333;
+  color: #fff;
 }

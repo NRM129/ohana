@@ -3,7 +3,7 @@
 
 .note-sell-contents {
   background-color: #FFFFF0;
-  font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
+  : "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -14,9 +14,9 @@
 
 .note-sell-main {
   background-color: #FFF;
-  /* width: 50vw; */
   min-width: 450px;
   padding: 10vh 15vw;
+  margin-bottom: 2cm;
 }
 
 .items-sell-title {

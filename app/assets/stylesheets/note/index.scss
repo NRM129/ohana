@@ -1,119 +1,181 @@
 /* 背景 */
-// .main{
-// }
-
-
-.title-contents {
-  width: 100vw;
-  height: 40vh;
-  background-image: image-url('top_image.jpg');
+body {
+  background-image: image-url('back_image.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-attachment: fixed;
+}
+
+.main--title{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 5vh 15vw;
-  color: #fff;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.top-title{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 20px;
+  color: rgb(230,167,86);
+}
+
+.sub-title{
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 4rem;
+  margin-bottom: 70px;
+  color: #f5f5f5;
+  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+}
+
+.content-note-title{
+  text-align: center;
+  margin-top: 3cm;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.main-btm{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: 0.5cm 0 4cm 0;
+}
+
+.content-note-img{
+
+}
+
+.content-note-diary{
+  width: 40%;
+  height: 75vh;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 30px 0 30px;
+  border: 2px solid #A89765;
+  text-align: center;
+}
+
+.content-note-diary-date{
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-size: xxx-large;
+  color: white;
+  margin-bottom: 10px;
+  background-color: burlywood;
+}
+
+.tb_first{
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  margin: 5px 0;
+}
+
+.tb_text{
+  align-items: flex-start;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.content-note-diary-weather{
+  margin-bottom: 10px;
+}
+
+.content-note-diary-r_person{
+  margin-bottom: 10px;
+}
+
+.content-note-diary-com-title{
+  margin: 20px 0 10px 0;
+}
+
+.content-note-diary-com{
+  height: 50%;
+  display: flex;
+  text-align: left;
+}
+
+.content-note-diary-show{
+  text-align: end;
+}
+
+.content-note-diary-show-link{
+  text-decoration: none;
+  color: #7b7062;
+}
+
+// **トップ投稿画像**
+.first-note-img {
+  width: 100%;
+  height: 75vh;
+}
+
+.contents-left {
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dates{
-  display: contents;
+  text-align: center;
+  color: white;
 }
 
 .date_day{
-  font-size: 60px;
-  margin-bottom: 3vh;
+  font-size: 100px;
+  font-weight: 900;
+}
+
+.date_year{
+  margin-bottom: 35px;
 }
 
 
-/* お知らせ */
-.notice-contents{
- margin-bottom: 20px;
+.note-contents{
+  width: 100vw;
 }
 
-.heading-name {
-  text-align: center;
-  border-bottom: 1px solid #db6357;
-  width: 200px;
-  margin: 40px auto 20px;
-}
-
-.messages {
-  width: 50vw;
-  margin: 0 auto;
-}
-
-.message {
-  display: flex;
-  font-size: 14px;
-  margin: 0 0 16px 70px;
-}
-
-.message-date {
-  padding-right: 40px;
-}
-/* お知らせ */
-
-/* 画像 */
-.note-contents {
-  background-color: #FFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10vh 0;
-}
-
-.note-contents>.title {
-  font-size: 5vh;
-  line-height: 1.4;
-  font-weight: bold;
-}
-
-.note-contents>.subtitle {
-  font-size: 3vh;
-  margin: 1vh 0;
-  text-decoration: none;
-  color: #3ccace;
-  font-weight: bold;
+.title{
+  font-size: 2.4rem;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
 .note-lists {
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.note-lists>.list {
-  width: 37vh;
-  padding: 1vw;
-  background-color: #FFF;
-}
-
-.list li{
-  display: inline;
-}
-
-.note-img-content {
-  position: relative;
+.note-img-contents{
+  display: flex;
+  margin: 0 30px 50px
 }
 
 .note-img {
-  width: 33vh;
-  height: 33vh;
+  width: 40vh;
+  height: 40vh;
 }
 
-p{
-  position: absolute;
-  bottom: 3px;
-  right: 0;
-  font-size:15px;
+.note-list-tb{
+  width: 40vh;
+  height: 40vh;
+  // border: 2px solid #A89765;
+}
+
+.tb_list{
+  text-decoration: none;
   color: black;
-  padding:0;
-  margin:0;
 }
-
 /* 画像 */
