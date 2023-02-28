@@ -49,10 +49,6 @@ body {
   margin: 0.5cm 0 4cm 0;
 }
 
-.content-note-img{
-
-}
-
 .content-note-diary{
   width: 40%;
   height: 75vh;
@@ -113,7 +109,7 @@ body {
   color: #7b7062;
 }
 
-// **トップ投稿画像**
+/**トップ投稿画像**/
 .first-note-img {
   width: 100%;
   height: 75vh;
@@ -153,6 +149,7 @@ body {
   font-weight: 600;
   text-align: center;
   color: rgb(80,59,48);
+  margin-bottom: 20px;
 }
 
 .note-lists {
@@ -181,4 +178,3 @@ body {
   text-decoration: none;
   color: black;
 }
-/* 画像 */

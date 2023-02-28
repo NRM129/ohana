@@ -3,7 +3,6 @@
 
 .note-sell-contents {
   background-color: #FFFFF0;
-  : "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -149,7 +148,7 @@
   padding: 15px 35%;
   text-decoration: none;
   border-radius: 20px;
-
+  
 }
 
 

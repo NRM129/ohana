@@ -1,10 +1,3 @@
-
-/* 全体 */
-
-/* .note-show-whole-all{
-  display: flex;
-} */
-
 .note-show-whole{
   width: 100vw;
   background-color: #FFFFF0;
@@ -63,12 +56,6 @@ th {
 td {
   text-align: center;
 }
-
-/* th[scope='col'] {
-  background-color: #696969;
-  color: #fff;
-} */
-
 
 table {
   border-collapse: collapse;
