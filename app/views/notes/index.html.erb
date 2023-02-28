@@ -26,62 +26,167 @@
   <%= render "shared/header" %>
   </header>
 
+<%# 最新連絡ノート  %>
+  <div class='main'>
+    <div class='content-note-title'>
+      <h2 class='title'>新着ノート</h2>
+    </div>
+    <%# 画像  %>
+    <div class='main-btm'>
+    <% if @first_note_date.present? %>
+      <div class='content-note-img'>
+        <% if @first_note_date.image.present? %>
+          <%= image_tag @first_note_date.image, class: "first-note-img" %>
+        <% else %>
+          <%= image_tag "no-image.jpg", class: "first-note-img" %>
+        <% end %>
+      </div>
+      <%# 画像  %>
 
-   
-    <%# 連絡ノート一覧  %>
+      <div class='content-note-diary'>
+          <%# 日付 %>
+          <div class='content-note-diary-date'>
+            <%= @first_note_date.record_date.month %> / <%= @first_note_date.record_date.day %>
+          </div>
+          <%# 日付 %>
+
+          <%# 表 %>
+          <table width="100%" height="30%", class="tb_first">
+            <tr bgcolor="#f5f5f5">
+              <td>利用時間</td>
+              <td>利用種類</td>
+              <td>体温</td>
+            </tr>
+            <tr bgcolor="white">
+                <td><%= @first_note_date.utilization_time.hour %>:<%= @first_note_date.utilization_time.min %></td>
+                <td><%= @first_note_date.usage_type.name %></td>
+                <td><%= @first_note_date.body_temperature %>°</td>
+            </tr>
+          </table>
+
+          <table width="100%" height="70%", class="tb_first">
+            <tr bgcolor="#f5f5f5" height="30">
+              <td>担当者：<%= @first_note_date.responsible_person %></td>
+            </tr>
+            <tr bgcolor="white">
+                <td valign="top" class="tb_text"><%= @first_note_date.diary.truncate(300, omission: '~~~') %>
+            </tr>
+          </table>
+          <%# 表 %>
+          <div class='content-note-diary-show'>
+            <%= link_to note_path(@first_note_date.id), class: "content-note-diary-show-link" do %>
+              詳細を見る>>
+            <% end %>
+          </div> 
+      </div> 
+
+        <% else %>
+          <%# データがない時  %>
+          <%# 画像 %>
+          <div class='content-note-img'>
+            <%= image_tag "no-image.jpg", class: "first-note-img" %>
+          </div>
+          <%# 画像 %>
+          <%# 日付 %>
+        <div class='content-note-diary'>
+          <div class='content-note-diary-date'>
+            <%= @time.month %> / <%= @time.day %>
+          </div>
+          <%# 日付 %>
+
+          <%# 表 %>
+          <table width="100%" height="30%", class="tb_first">
+            <tr bgcolor="#f5f5f5">
+              <td>利用時間</td>
+              <td>利用種類</td>
+              <td>体温</td>
+            </tr>
+            <tr bgcolor="white">
+                <td><%= @time.hour %>:<%= @time.min %></td>
+                <td>見本</td>
+                <td>見本</td>
+            </tr>
+          </table>
+
+          <table width="100%" height="70%", class="tb_first">
+            <tr bgcolor="#f5f5f5" height="30">
+              <td>担当者： 見本</td>
+            </tr>
+            <tr bgcolor="white">
+                <td valign="top" class="tb_text">見本</td>
+            </tr>
+          </table>
+          <%# 表 %>
+          <div class='content-note-diary-show'>
+            <%= link_to root_path, class: "content-note-diary-show-link" do %>
+              詳細を見る>>
+            <% end %>
+          </div> 
+        </div>
+      <% end %>
+    </div>
+  </div>
+    <%# 最新連絡ノート  %>
+
+
+
+
+  <%# 連絡ノート一覧  %>
   <div class='note-contents'>
     <h2 class='title'>過去のノート</h2>
-    <ul class='note-lists'>
-      <% @notes.order(record_date: :desc).each do |note| %>
-        <% if note.id.present? %>
-        <%# データがある時  %>
-        <li class='list'>
-            <%= link_to note_path(note.id) do %>
-            <div class='note-img-contents'>
-              <div class='note-img-content'>
-                <% if note.image.present? %>
-                  <%= image_tag note.image, class: "note-img" %>
-                <% else %>
-                  <%= image_tag "no-image.jpg", class: "note-img" %>
-                <% end %>
+    <% if @notes.present? %>
+      <ul class='note-lists'>
+        <% @notes.order(record_date: :desc).each do |note| %>
+          <%# データがある時  %>
+          <li class='list'>
+              <%= link_to note_path(note.id) do %>
+              <div class='note-img-contents'>
+                <div class='note-img-content'>
+                  <% if note.image.present? %>
+                    <%= image_tag note.image, class: "note-img" %>
+                  <% else %>
+                    <%= image_tag "no-image.jpg", class: "note-img" %>
+                  <% end %>
+                </div>
+              <% end %>
+                <div class='note-list-tb'>
+                  <table width="100%" height="100%", class="tb_list">
+                    <tr bgcolor="#f5f5f5" height="30">
+                        <td>担当者：<%= note.responsible_person %></td>
+                    </tr>
+                    <tr bgcolor="white">
+                        <td valign="top" class="tb_text"><%= note.diary.truncate(50, omission: '~~~') %>
+                    </tr>
+                  </table>
+                </div>
               </div>
-            <% end %>
-              <div class='note-list-tb'>
-                <table width="100%" height="100%", class="tb_list">
-                  <tr bgcolor="#f5f5f5" height="30">
-                      <td>担当者：<%= note.responsible_person %></td>
-                  </tr>
-                  <tr bgcolor="white">
-                      <td valign="top" class="tb_text"><%= note.diary.truncate(50, omission: '~~~') %>
-                  </tr>
-                </table>
-              </div>
-            </div>
-        </li>
-        <%# データがある時  %>
-        <% else %>
-        <%# データがない時  %>
-        <li class='list'>
-            <div class='note-img-contents'>
-              <div class='note-img-content'>
-                  <%= image_tag "no-image.jpg", class: "note-img" %>
-              </div>
-              <div class='note-list-tb'>
-                <table width="100%" height="100%", class="tb_list">
-                  <tr bgcolor="#f5f5f5" height="30">
-                      <td>担当者：</td>
-                  </tr>
-                  <tr bgcolor="white">
-                      <td valign="top" class="tb_text"></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-        </li>
-        <%# データがない時  %>
+          </li>
+          <%# データがある時  %>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    <% else %> 
+      <ul class='note-lists'>
+          <%# データがない時  %>
+          <li class='list'>
+              <div class='note-img-contents'>
+                <div class='note-img-content'>
+                    <%= image_tag "no-image.jpg", class: "note-img" %>
+                </div>
+                <div class='note-list-tb'>
+                  <table width="100%" height="100%", class="tb_list">
+                    <tr bgcolor="#f5f5f5" height="30">
+                        <td>担当者：</td>
+                    </tr>
+                    <tr bgcolor="white">
+                        <td valign="top" class="tb_text">　　　</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+          </li>
+          <%# データがない時 %>
+    <% end %>
+      </ul>
   </div>
   <%# 連絡ノート  %>
   
