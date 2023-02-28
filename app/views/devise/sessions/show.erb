@@ -8,35 +8,35 @@
   <%# 画像 %>
 
   <%# ノート上部 %>
-  <div class="note-record-top">
-    <div class="note-record-person">
-    【担当者】 <%= @note.responsible_person %>
+  <div class="show-whole">
+    <div class="note-record-top">
+      <div class="note-record-weather">
+      <%= @note.record_date %> <%# 利用日 %>
+      <%= @note.weather.name %> <%# 天気予報 %>
+      </div>
     </div>
-    <div class="note-record-weather">
-    <%= @note.record_date %> <%# 利用日 %>
-    <%= @note.weather.name %> <%# 天気予報 %>
-    </div>
+    
+    <%# 表情上部 %>
+    <table>
+      <tr>
+        <th scope="col">担当者</th>
+        <th scope="col">利用時間</th>
+        <th scope="col">利用種類</th>
+        <th scope="col">体温</th>
+        <th scope="col">脈拍</th>
+        <th scope="col">血圧</th>
+        <th scope="col">服薬</th>
+        <th scope="col">入浴</th> 
+      </tr>
+      <tr>
+          <td><%= @note.responsible_person %></td>
+          <td><%= @note.utilization_time %></td>
+          <td><%= @note.usage_type.name %></td>
+          <td><%= @note.body_temperature %></td>
+          <td><%= @note.pulse.name %></td>
+          <td><%= @note.taking_medicine.name %></td>
+          <td><%= @note.bathing.name %></td>
+      </tr>
+    </table>
   </div>
-  
-  <%# 表情上部 %>
-  <table>
-    <tr>
-       <th scope="col">利用時間</th>
-      <th scope="col">利用種類</th>
-       <th scope="col">体温</th>
-       <th scope="col">脈拍</th>
-      <th scope="col">血圧</th>
-       <th scope="col">服薬</th>
-      <th scope="col">入浴</th> 
-    </tr>
-    <tr>
-        <td><%= @note.utilization_time %></td>
-        <td><%= @note.usage_type.name %></td>
-        <td><%= @note.body_temperature %></td>
-        <td><%= @note.pulse.name %></td>
-        <td><%= @note.taking_medicine.name %></td>
-        <td><%= @note.bathing.name %></td>
-    </tr>
- </table>
-
 </div>

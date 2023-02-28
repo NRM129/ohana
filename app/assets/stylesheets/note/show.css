@@ -6,15 +6,52 @@
 } */
 
 .note-show-whole{
-  height: 100vh;
   width: 100vw;
+  background-color: #FFFFF0;
 }
 
-.note-show-adjustment{
+.show-whole{
+  padding: 0 15%;
+}
+
+.note-show-img{
   width: 80%;
 }
 
 
+
+.note-box-img {
+height: 35vh;
+width: 100vw;
+min-height: 500px;
+object-fit: contain;
+background-color: #FFFFF0;
+border-top-color: black;
+padding: 15px;
+}
+
+ul.right__brocks li{
+  height: 100%
+}
+
+.note-contents-top{
+  display: block;
+  justify-content: space-between;
+  margin: 0px 0 15px 0;
+  font-size: small;
+}
+
+.note-record-weather{
+  font-weight: 200;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: larger;
+}
+
+.change-content{
+  text-align: end;
+
+}
 
 /* 表 */
 td,
@@ -27,23 +64,11 @@ td {
   text-align: center;
 }
 
-tr:nth-child(even) {
-  background-color: #FFFFF0;
-}
-
 /* th[scope='col'] {
   background-color: #696969;
   color: #fff;
 } */
 
-th[scope='row'] {
-  background-color:#ffffc0;
-}
-
-caption {
-  padding: 10px;
-  caption-side: bottom;
-}
 
 table {
   border-collapse: collapse;
@@ -51,6 +76,34 @@ table {
   letter-spacing: 1px;
   font-family: sans-serif;
   font-size: 0.8rem;
+  margin-bottom: 30px;
+}
+/* 表 */
+
+/* 編集・削除ボタン */
+.note-change-btn{
+  border: 2px solid #fff;
+  padding: 8px 20px;
+  color: #fff;
+  background-color: #ff533d;
+  border-radius: 20px;
+  text-decoration: none;
+  width: 20px;
 }
 
-/* 献立 */
+.note-destroy-btn{
+  border: 2px solid #fff;
+  padding: 8px 20px;
+  color: #fff;
+  background-color: #ff533d;
+  border-radius: 20px;
+  text-decoration: none;
+  width: 20px;
+  }
+  /* 編集・削除ボタン */
+
+
+  /* ご家族コメント */
+.textarea{
+  width: 100%;
+}
