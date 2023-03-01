@@ -33,6 +33,8 @@ body {
   align-items: center;
   background-color: #FFFFF0;
   padding: 30px;
+  border-top: double 4px rgb(246,225,197);
+  border-bottom: double 4px rgb(246,225,197);
 }
 
 .logo {

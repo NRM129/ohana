@@ -1,0 +1,82 @@
+<%= render "shared/second-header"%>
+<%= render "shared/header" %>
+
+<%# 全体 %>
+<div class="note-show-whole">
+   <%# 連絡ノート一覧  %>
+  <div class='note-contents'>
+    <% if user_signed_in? && @notes.present? %>
+      <ul class='note-lists'>
+        <% @notes.order(record_date: :desc).each do |note| %>
+          <%# データがある時  %>
+          <li class='list'>
+              <%= link_to note_path(note.id) do %>
+              <div class='note-img-contents'>
+                <div class='note-img-content'>
+                  <% if note.image.present? %>
+                    <%= image_tag note.image, class: "note-img" %>
+                  <% else %>
+                    <%= image_tag "no-image.jpg", class: "note-img" %>
+                  <% end %>
+                </div>
+                <div class='note-list-tb'>
+                  <table width="100%" height="100%", class="tb_list">
+                    <tr bgcolor="#f5f5f5" height="30">
+                        <td>
+                          <%# 日付  %>
+                          <div class='note-img-content-date'>
+                            <%= note.record_date.month %>/<%= note.record_date.day %><br>
+                          </div>
+                          <%# 日付  %>
+                        担当者：<%= note.responsible_person %>
+                        </td>
+                        
+                    </tr>
+                    <tr bgcolor="white">
+                        <td valign="top" class="tb_text"><%= note.diary.truncate(80, omission: '.....') %>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <% end %>
+          </li>
+          <%# データがある時  %>
+        <% end %>
+      </ul>
+    <% else %> 
+      <ul class='note-lists'>
+          <%# データがない時  %>
+          <li class='list'>
+              <div class='note-img-contents'>
+                <div class='note-img-content'>
+                    <%= image_tag "no-image.jpg", class: "note-img" %>
+                </div>
+                <div class='note-list-tb'>
+                  <table width="100%" height="100%", class="tb_list">
+                    <tr bgcolor="#f5f5f5" height="30">
+                        <td>担当者：</td>
+                    </tr>
+                    <tr bgcolor="white">
+                        <td valign="top" class="tb_text">　　　</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+          </li>
+          <%# データがない時 %>
+    <% end %>
+      </ul>
+  </div>
+  <%# 連絡ノート  %>
+
+
+<%= @phone_number %>
+<%= @birthday %>
+<%= @blood_type_id %>
+<%= @start_date %>
+    
+
+
+
+</div>
+<%= render "shared/second-footer" %>

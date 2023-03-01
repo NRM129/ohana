@@ -9,7 +9,7 @@
         <li><%= link_to 'トップページ', root_path, class: "notice" %></li>
           <li><%= link_to 'ノート記入', new_note_path, class: "new-note" %></li>
           <% if user_signed_in? %>
-          <li> <%= link_to 'ノート一覧', '#', class: "show-page" %></li>
+          <li> <%= link_to 'マイページ', "/users/#{current_user.id}", class: "show-page" %></li>
           <%# <li><%= link_to current_user.name, root_path, class: "user-name" %>
           <li> <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
           <% else %>
