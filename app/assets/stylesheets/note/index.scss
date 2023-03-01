@@ -209,3 +209,21 @@ body {
   color: black;
 }
 
+.pagination>li>a {          
+  border: none;     
+  color: white;   
+}
+
+.pagination>.active>a {     
+  background: rgb(95,72,49);     
+  border-radius: 15px;     
+}
+
+.pagination>li>a:hover {        
+  border-radius: 15px;   
+}
+
+.pagination {
+  justify-content: center;
+  margin-bottom: 20px;
+}

@@ -133,6 +133,7 @@
   <%# 連絡ノート一覧  %>
   <div class='note-contents'>
       <div class='title'>過去一覧</div>
+        <%= paginate(@notes) %>
     <% if user_signed_in? && @notes.present? %>
       <ul class='note-lists'>
         <% @notes.order(record_date: :desc).each do |note| %>

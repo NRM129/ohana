@@ -8,7 +8,8 @@ class NotesController < ApplicationController
     # binding.pry
     # @notes = Note.all
     @first_note_date = Note.order(record_date: :DESC).first
-    @notes = Note.order(record_date: :DESC)
+    # @notes = Note.order(record_date: :DESC)
+    @notes = Note.page(params[:page]).per(4).order(record_date: :DESC)
   end
 
   def new
