@@ -1,10 +1,12 @@
 /* 背景 */
 body {
+  width: 100vw;
   background-image: image-url('back_image.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
 
 .main--title{
   display: flex;
@@ -16,7 +18,7 @@ body {
   text-align: center;
   font-size: 2rem;
   font-weight: 800;
-  margin: 20px;
+  padding: 50px 0 0 0;
   color: rgb(230,167,86);
 }
 
@@ -40,6 +42,12 @@ body {
   margin-top: 3cm;
   font-size: 30px;
   font-weight: 600;
+}
+
+.cp_hr04 {
+  border-width: 3px 0 0 0;
+  border-style: double;
+  border-color: #ff6f00;
 }
 
 .main-btm{
@@ -160,13 +168,41 @@ body {
 
 .note-img-contents{
   display: flex;
-  margin: 0 30px 50px
+  margin: 0 30px 50px;
+  // position: relative;
 }
 
 .note-img {
   width: 40vh;
   height: 40vh;
+  border: 8px ridge #A89765;
 }
+
+/* 日付 */
+// .note-img-content-dates{
+//   width: 40vh;
+//   position: absolute;
+//   left: 0;
+//   top: 30%;
+//   display: flex;
+//   flex-direction: column;
+//   text-align: center;
+// }
+
+// .note-img-content-date-day{
+//   font-size: 50px;
+//   font-weight: 900;
+
+// }
+
+.note-img-content-date{
+  font-size: 20px;
+  font-weight: 100;
+  margin: 5px 0 5px 0;
+}
+
+/* 日付 */
+
 
 .note-list-tb{
   width: 40vh;
@@ -178,3 +214,4 @@ body {
   text-decoration: none;
   color: black;
 }
+
