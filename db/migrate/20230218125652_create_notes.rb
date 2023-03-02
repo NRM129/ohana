@@ -5,7 +5,7 @@ class CreateNotes < ActiveRecord::Migration[6.0]
       t.integer     :weather_id,           null: false
       t.string      :responsible_person,   null: false
       t.time        :utilization_time,     null: false
-      t.integer     :body_temperature
+      t.float       :body_temperature
       t.integer     :pulse
       t.integer     :blood_pressure
       t.integer     :taking_medicine_id,   null: false
