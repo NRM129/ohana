@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">お名前</label>
+      <label class="form-text">お名前(代表者)</label>
       <span class="indispensable">必須</span>
     </div>
     <%= f.text_area :name, class:"input-default", id:"name", placeholder:"例) 田中 太郎", maxlength:"40" %>
@@ -43,9 +43,10 @@
   <div class="form-group">
     <p class='form-info-header'>
   </div>
+  <div class="form-top-text">〜 利用者様情報 〜</div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">電話番号</label>
+      <label class="form-text">電話番号(緊急連絡先)</label>
       <span class="indispensable">必須</span>
     </div>
     <%= f.text_field :phone_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
@@ -75,7 +76,8 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-name-wrap'>
-      <%= f.text_field :blood_type_id, class:"input-name", id:"blood_type", placeholder:"例) O型" %>
+      <%= f.text_field :blood_type_id, class:"input-default", id:"blood_type", placeholder:"例) O型" %>
+      <%# <%= f.select :blood_type_id, [["----", "----"],["A型", "A型"], ["B型", "B型"], ["O型", "O型"], ["AB型", "AB型"], ["不明", "不明"]], {class:"input-name", id:"blood_type", placeholder:"例) O型" } %>
       <%# <%= f.collection_select(:blood_type_id, BloodType.all, :id, :name, {}, {class:"input-name", id:"blood_type"}) %>
     </div>
   </div>
