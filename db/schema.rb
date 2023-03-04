@@ -73,9 +73,9 @@ ActiveRecord::Schema.define(version: 2023_03_01_033154) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "phone_number"
-    t.date "birthday"
-    t.integer "blood_type_id"
+    t.string "phone_number", null: false
+    t.date "birthday", null: false
+    t.integer "blood_type_id", null: false
     t.date "start_date"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
