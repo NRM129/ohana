@@ -44,13 +44,13 @@
     <p class='form-info-header'>
   </div>
   <div class="form-top-text">〜 利用者様情報 〜</div>
-  <%# <div class="form-group">
+  <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">お名前</label>
       <span class="indispensable">必須</span>
     </div>
     <%= f.text_area :facility_user, class:"input-default", id:"name", placeholder:"例) 田中 太郎", maxlength:"20" %>
-  <%# </div> %>
+  </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">電話番号(緊急連絡先)</label>
@@ -61,7 +61,7 @@
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">生年月日</label>
-      <span class="indispensable">必須</span>
+      <%# <span class="indispensable">必須</span> %>
     </div>
     <div class='input-birth-wrap'>
       <%= raw sprintf(
