@@ -10,4 +10,9 @@ class User < ApplicationRecord
 
   has_many :notes
   has_many :comments
+
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
+    validates :name
+    validates :facility_user
+  end
 end
