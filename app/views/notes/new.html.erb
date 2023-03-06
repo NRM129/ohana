@@ -17,6 +17,12 @@
       <%# 画像アップロード %>
       <div class="items-detail">
         <div class="form">
+          <%# 利用者様名選択 %>
+          <div class="weight-bold-text">
+            記入する利用者様名
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.select :facility_user_id, @users ,class:"select-box" %>
 
           <%# 担当者 %>
           <div class="weight-bold-text">
