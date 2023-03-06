@@ -12,7 +12,7 @@ class CreateNotes < ActiveRecord::Migration[6.0]
       t.integer     :usage_type_id,        null: false
       t.integer     :bathing_id,           null: false
       t.text        :diary,                null: false
-      t.string      :facility_user,        null: false
+      t.integer     :facility_user_id,     null: false
       t.references  :user,                 null: false, foreign_key: true
 
       t.timestamps
