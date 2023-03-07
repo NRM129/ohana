@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2023_03_01_033154) do
     t.integer "usage_type_id", null: false
     t.integer "bathing_id", null: false
     t.text "diary", null: false
-    t.integer "facility_user_id", null: false
+    t.string "facility_user", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

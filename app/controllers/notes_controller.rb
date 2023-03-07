@@ -24,7 +24,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to root_path
     else
-      render :new_note_path
+      render :new
     end
   end
 
@@ -54,7 +54,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:facility_user_id, :image, :record_date, :weather_id, :responsible_person, :utilization_time, :body_temperature, :pulse,
+    params.require(:note).permit(:facility_user, :image, :record_date, :weather_id, :responsible_person, :utilization_time, :body_temperature, :pulse,
                                  :blood_pressure, :taking_medicine_id, :usage_type_id, :bathing_id, :diary).merge(user_id: current_user.id)
   end
 

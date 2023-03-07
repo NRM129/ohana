@@ -23,7 +23,7 @@
             <span class="indispensable">必須</span>
           </div>
           <%# <%= f.select :facility_user_id, @users ,class:"select-box" %> %>
-          <%= f.collection_select(:facility_user_id, @user, :id, :facility_user, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+          <%= f.collection_select(:facility_user, User.all, :id, :facility_user, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
 
 
           <%# 担当者 %>

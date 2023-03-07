@@ -8,7 +8,7 @@ class Note < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :comments
-  belongs_to :facility_user, class_name: 'User', foreign_key: 'facility_user_id'
+  belongs_to :user, foreign_key: 'facility_user'
 
   validates :usage_type_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :weather_id, numericality: { other_than: 1 , message: "can't be blank"}
