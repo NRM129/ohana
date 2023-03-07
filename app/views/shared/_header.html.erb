@@ -10,7 +10,7 @@
           <%# 管理者専用用ページ  %>
           <% if user_signed_in? && current_user.id == 1 %>
             <li><%= link_to 'ノート記入', new_note_path, class: "new-note" %></li>
-            <li><%= link_to "管理者専用", root_path, class: "admin-page" %>
+            <li><%= link_to "管理者専用", users_path, class: "admin-page" %>
           <% end %>
           
           <% if user_signed_in? %>
