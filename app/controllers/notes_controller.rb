@@ -20,6 +20,7 @@ class NotesController < ApplicationController
   end
 
   def create
+    # binding.pry
     @note = Note.new(note_params)
     if @note.save
       redirect_to root_path
