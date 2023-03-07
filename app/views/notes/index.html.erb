@@ -20,7 +20,7 @@
     </div>
     <%# 画像  %>
     <div class='main-btm'>
-      <% if user_signed_in? && @first_note_date.present? %>
+      <% if user_signed_in? && @first_note_date.present? && (current_user.id == 1 || current_user.facility_user == @notes.first.facility_user) %>
         <div class='content-note-img'>
           <% if @first_note_date.image.present? %>
             <%= image_tag @first_note_date.image, class: "first-note-img" %>
@@ -121,7 +121,7 @@
   <div class='note-contents'>
       <div class='title'>過去一覧</div>
         <%= paginate(@notes) %>
-    <% if user_signed_in? && @notes.present? %>
+    <% if user_signed_in? && @notes.present? && (current_user.id == 1 || current_user.facility_user == @notes.first.facility_user) %>
       <ul class='note-lists'>
         <% @notes.order(record_date: :desc).each do |note| %>
           <%# データがある時  %>

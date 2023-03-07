@@ -28,12 +28,10 @@
         </div>
         <%# 編集・削除 %>
         <div class="change-content">
-        <% if user_signed_in? %>
           <% if user_signed_in? && current_user.id == 1 %>
             <%= link_to "商品の編集", edit_note_path(@note.id), method: :get, class: "note-change-btn" %>
             <%= link_to "　 削除 　",note_path(@note.id), method: :delete, class:"note-destroy-btn" %>
           <% end %>
-        <% end %>
         </div>
       </div>
         <%# 編集・削除 %>
