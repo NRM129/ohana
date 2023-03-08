@@ -5,80 +5,44 @@
 
 <%# 全体 %>
 <div class="note-show-whole">
-
-<div class="prf__whole">
-<%# ご利用者情報 %>
-  <table class="user_show_tbr">
-    <tr>
-      <th class="user_show_th" colspan="2" scope="col">ご利用情報</th>
-    </tr>
-    <tr>
-        <th class="user_show_th" scope="row">利用者様家族名</th>
-        <td class="user_show_tb" ><%= @user.name %></td>
-    </tr>
-    <tr>
-        <th class="user_show_th" scope="row">利用者様名</th>
-        <td class="user_show_tb" ><%= @user.facility_user %></td>
-    </tr>
-    <tr>
-        <th class="user_show_th" scope="row">生年月日</th>
-        <td class="user_show_tb" ><%= @user.birthday %></td>
-    </tr>
-    <tr>
-        <th class="user_show_th" scope="row">血液型</th>
-        <td class="user_show_tb" ><%= @user.blood_type_id %></td>
-    </tr>
-     <tr>
-          <th class="user_show_th" scope="row">緊急連絡先</th>
-          <td class="user_show_tb" ><%= @user.phone_number %></td>
+  <%# ご利用者情報 %>
+  <div class="note-show-whole-top">
+    <div class="prf__whole">
+    <table class="user_show_tbr">
+      <tr>
+        <th class="user_show_th" colspan="2" scope="col">ご利用情報</th>
       </tr>
-  	    <tr>
-          <th class="user_show_th" scope="row">利用開始日</th>
-          <td class="user_show_tb" ><%= @user.start_date %></td>
-       </tr>
-  </table>
-</div>
-
-   <%# 連絡ノート一覧  %>
-  <div class='note-contents'>
-    <% if user_signed_in? && @notes.present? %>
-      <ul class='note-lists'>
-        <% @notes.order(record_date: :desc).each do |note| %>
-          <%# データがある時  %>
-          <li class='list'>
-              <%= link_to note_path(note.id) do %>
-              <div class='note-img-contents'>
-                <div class='note-img-content'>
-                  <%= note.record_date.month %>/<%= note.record_date.day %><br>
-                  <% if note.image.present? %>
-                    <%= image_tag note.image, class: "show__note-img" %>
-                  <% else %>
-                    <%= image_tag "no-image.jpg", class: "show__note-img" %>
-                  <% end %>
-                </div>
-              </div>
-              <% end %>
-          </li>
-          <%# データがある時  %>
-        <% end %>
-      </ul>
-    <% else %> 
-      <ul class='note-lists'>
-          <%# データがない時  %>
-          <li class='list'>
-              <div class='note-img-contents'>
-                <div class='note-img-content'>
-                    <%= image_tag "no-image.jpg", class: "show__note-img" %>
-                </div>
-              </div>
-          </li>
-          <%# データがない時 %>
-    <% end %>
-      </ul>
+      <tr>
+          <th class="user_show_th" scope="row">利用者様家族名</th>
+          <td class="user_show_tb" ><%= @user.name %></td>
+      </tr>
+      <tr>
+          <th class="user_show_th" scope="row">利用者様名</th>
+          <td class="user_show_tb" ><%= @user.facility_user %></td>
+      </tr>
+      <tr>
+          <th class="user_show_th" scope="row">生年月日</th>
+          <td class="user_show_tb" ><%= @user.birthday %></td>
+      </tr>
+      <tr>
+          <th class="user_show_th" scope="row">血液型</th>
+          <td class="user_show_tb" ><%= @user.blood_type_id %></td>
+      </tr>
+      <tr>
+            <th class="user_show_th" scope="row">緊急連絡先</th>
+            <td class="user_show_tb" ><%= @user.phone_number %></td>
+        </tr>
+          <tr>
+            <th class="user_show_th" scope="row">利用開始日</th>
+            <td class="user_show_tb" ><%= @user.start_date %></td>
+        </tr>
+    </table>
+    </div>
+    <%# グラフ %>
+    <div class="chart-class">
+      <%= line_chart Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :body_temperature), xtitle: '利用日', ytitle: '体温', min: 33, max: 45, class: 'my-chart-class' %>
+    </div>
   </div>
-  <%# 連絡ノート  %>    
-
-
 
 </div>
 <%= render "shared/second-footer" %>
