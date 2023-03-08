@@ -2,6 +2,7 @@ class NotesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :set_time, only: [:index, :show]
+  before_action :move_to_index, only: [:edit, :destroy]
 
 
   def index
@@ -66,6 +67,11 @@ class NotesController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def move_to_index
+    return if user_signed_in?
+    redirect_to action: :index
   end
 
 end

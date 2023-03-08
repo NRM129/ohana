@@ -5,6 +5,40 @@
 
 <%# 全体 %>
 <div class="note-show-whole">
+
+<div class="prf__whole">
+<%# ご利用者情報 %>
+  <table class="user_show_tbr">
+    <tr>
+      <th class="user_show_th" colspan="2" scope="col">ご利用情報</th>
+    </tr>
+    <tr>
+        <th class="user_show_th" scope="row">利用者様家族名</th>
+        <td class="user_show_tb" ><%= @user.name %></td>
+    </tr>
+    <tr>
+        <th class="user_show_th" scope="row">利用者様名</th>
+        <td class="user_show_tb" ><%= @user.facility_user %></td>
+    </tr>
+    <tr>
+        <th class="user_show_th scope="row">生年月日</th>
+        <td class="user_show_tb" ><%= @user.birthday %></td>
+    </tr>
+    <tr>
+        <th class="user_show_th scope="row">血液型</th>
+        <td class="user_show_tb" ><%= @user.blood_type_id %></td>
+    </tr>
+     <tr>
+          <th class="user_show_th scope="row">緊急連絡先</th>
+          <td class="user_show_tb" ><%= @user.phone_number %></td>
+      </tr>
+  	    <tr>
+          <th class="user_show_th scope="row">利用開始日</th>
+          <td class="user_show_tb" ><%= @user.start_date %></td>
+       </tr>
+  </table>
+</div>
+
    <%# 連絡ノート一覧  %>
   <div class='note-contents'>
     <% if user_signed_in? && @notes.present? %>
@@ -17,9 +51,9 @@
                 <div class='note-img-content'>
                   <%= note.record_date.month %>/<%= note.record_date.day %><br>
                   <% if note.image.present? %>
-                    <%= image_tag note.image, class: "note-img" %>
+                    <%= image_tag note.image, class: "show__note-img" %>
                   <% else %>
-                    <%= image_tag "no-image.jpg", class: "note-img" %>
+                    <%= image_tag "no-image.jpg", class: "show__note-img" %>
                   <% end %>
                 </div>
               </div>
@@ -34,7 +68,7 @@
           <li class='list'>
               <div class='note-img-contents'>
                 <div class='note-img-content'>
-                    <%= image_tag "no-image.jpg", class: "note-img" %>
+                    <%= image_tag "no-image.jpg", class: "show__note-img" %>
                 </div>
               </div>
           </li>

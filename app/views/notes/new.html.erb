@@ -19,11 +19,11 @@
         <div class="form">
           <%# 利用者様名選択 %>
           <div class="weight-bold-text">
-            記入する利用者様名
+            利用者様名の選択
             <span class="indispensable">必須</span>
           </div>
           <%#= f.collection_select(:facility_user, User.all, :id, :facility_user, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>  <%# id数値で保存したい場合 %>
-           <%#= f.collection_select(:facility_user, User.all, :facility_user, :name, {}, {class: "select-box", id: "item-shipping-fee-status"}) %> %>
+           <%#= f.collection_select(:facility_user, User.all, :facility_user, :name, {}, {class: "select-box", id: "item-shipping-fee-status"}) %> 
            <%= f.collection_select(:facility_user, User.where.not(id: 1), :facility_user, :name, {}, {class: "select-box", id: "item-shipping-fee-status"}) %>
 
 

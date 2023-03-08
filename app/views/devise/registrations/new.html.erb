@@ -83,9 +83,7 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-name-wrap'>
-      <%= f.text_field :blood_type_id, class:"input-default", id:"blood_type", placeholder:"例) O型" %>
-      <%# <%= f.select :blood_type_id, [["----", "----"],["A型", "A型"], ["B型", "B型"], ["O型", "O型"], ["AB型", "AB型"], ["不明", "不明"]], {class:"input-name", id:"blood_type", placeholder:"例) O型" } %>
-      <%# <%= f.collection_select(:blood_type_id, BloodType.all, :id, :name, {}, {class:"input-name", id:"blood_type"}) %>
+      <%= f.select :blood_type, options_for_select(["選択してください", "A型", "B型", "AB型", "O型", "不明"].map { |blood_type| [blood_type, blood_type, { disabled: blood_type == "選択してください" }] }), {}, class: "input-default", id: "blood_type" %>
     </div>
   </div>
   <div class="form-group">
