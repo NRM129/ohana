@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_22_032949) do
+ActiveRecord::Schema.define(version: 2023_03_01_033154) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -51,13 +51,15 @@ ActiveRecord::Schema.define(version: 2023_02_22_032949) do
     t.integer "weather_id", null: false
     t.string "responsible_person", null: false
     t.time "utilization_time", null: false
-    t.integer "body_temperature"
-    t.integer "pulse"
-    t.integer "blood_pressure"
+    t.float "body_temperature", null: false
+    t.integer "pulse", null: false
+    t.integer "dbp", null: false
+    t.integer "sbp", null: false
     t.integer "taking_medicine_id", null: false
     t.integer "usage_type_id", null: false
     t.integer "bathing_id", null: false
     t.text "diary", null: false
+    t.string "facility_user", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -73,10 +75,12 @@ ActiveRecord::Schema.define(version: 2023_02_22_032949) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "phone_number"
-    t.date "birthday"
-    t.integer "blood_type_id"
+    t.string "facility_user", null: false
+    t.string "phone_number", null: false
+    t.date "birthday", null: false
+    t.string "blood_type", null: false
     t.date "start_date"
+    t.boolean "admin"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

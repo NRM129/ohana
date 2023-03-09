@@ -7,14 +7,20 @@
     <nav>
       <ul>
         <li><%= link_to 'トップページ', root_path, class: "notice" %></li>
-          <li><%= link_to 'ノート記入', new_note_path, class: "new-note" %></li>
+          <%# 管理者専用用ページ  %>
+          <% if user_signed_in? && current_user.id == 1 %>
+            <li><%= link_to 'ノート記入', new_note_path, class: "new-note" %></li>
+            <li><%= link_to "管理者専用", users_path, class: "admin-page" %>
+          <% end %>
+          
           <% if user_signed_in? %>
-          <li> <%= link_to 'ノート一覧', '#', class: "show-page" %></li>
-          <%# <li><%= link_to current_user.name, root_path, class: "user-name" %>
-          <li> <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+            <% unless current_user.id == 1 %>
+              <li> <%= link_to "マイページ", "/users/#{current_user.id}", class: "show-page" %></li>
+            <% end %>
+            <li> <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
           <% else %>
             <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-          <li> <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+            <li> <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
           <% end %>
     </nav>
   </div>

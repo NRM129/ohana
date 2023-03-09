@@ -1,5 +1,7 @@
 <%= render "shared/second-header"%>
-<%= render "shared/header" %>
+  <header class="header">
+   <%= render "shared/header" %>
+  </header>
 
 <%# 全体 %>
 <div class="note-show-whole">
@@ -21,40 +23,41 @@
     <div class="show-whole">
       <div class="note-contents-top">
           <div class="note-record-weather">
-          <%= @note.record_date %> <%# 利用日 %>
+          <%= @note.record_date.strftime('%Y年%m月%d日') %> <%# 利用日 %>
           <%= @note.weather.name %> <%# 天気予報 %>
         </div>
-
         <%# 編集・削除 %>
         <div class="change-content">
-        <% if user_signed_in? %>
-          <% if current_user == @note.user%>
+          <% if user_signed_in? && current_user.id == 1 %>
             <%= link_to "商品の編集", edit_note_path(@note.id), method: :get, class: "note-change-btn" %>
             <%= link_to "　 削除 　",note_path(@note.id), method: :delete, class:"note-destroy-btn" %>
           <% end %>
-        <% end %>
         </div>
       </div>
         <%# 編集・削除 %>
       <%# 表上部 %>
       <table width="100%" height="100">
         <tr bgcolor="#f5f5f5">
+          <td scope="col">利用者様</td>
           <td scope="col">担当者</td>
           <td scope="col">利用時間</td>
           <td scope="col">利用種類</td>
           <td scope="col">体温</td>
           <td scope="col">脈拍</td>
-          <td scope="col">血圧</td>
+          <td scope="col">最高血圧</td>
+          <td scope="col">最低血圧</td>
           <td scope="col">服薬</td>
           <td scope="col">入浴</td> 
         </tr>
         <tr bgcolor="white">
+            <td><%= @note.facility_user %>
             <td><%= @note.responsible_person %>
-            <td><%= @note.utilization_time.hour %>:<%= @note.utilization_time.min %></td>
+            <td><%= @note.utilization_time.strftime('%H:%M').sub(/^0/, '') %></td>
             <td><%= @note.usage_type.name %></td>
             <td><%= @note.body_temperature %></td>
             <td><%= @note.pulse %></td>
-            <td><%= @note.blood_pressure %></td>
+            <td><%= @note.sbp %></td>
+            <td><%= @note.dbp %></td>
             <td><%= @note.taking_medicine.name %></td>
             <td><%= @note.bathing.name %></td>
         </tr>
@@ -128,8 +131,9 @@
       <div class="container">
         <% if user_signed_in? %>
           <%= form_with(model: [@note, @comment], local: true) do |form| %>
-            <%= form.text_area :text, size: "50%x0", placeholder: "コメントする", rows: "10" %>
-            <%= form.submit "コメントする" %>
+            <%= form.text_area :text, style: "width:100%", placeholder: "コメントはこちらに記入ください", rows: "8" %>
+            <%= form.submit "コメントする", class: 'button'
+ %>
           <% end %>
         <% else %>
             <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>

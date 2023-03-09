@@ -1,0 +1,23 @@
+.admin__note-show-whole{
+  width: 80vw;
+  margin: 20px auto;
+  height: 100vh;
+}
+
+.admin__note-contents{
+
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.admin__tr{
+  background-color: gray;
+  color: white;
+}
+
+.admin__td{
+  background-color: white;
+}

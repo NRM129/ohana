@@ -76,11 +76,16 @@
 
           <%# 血圧 %>
           <div class="weight-bold-text">
-              血圧
+              最高血圧
               <span class="indispensable">必須</span>
             </div>
-            <%= f.text_field :blood_pressure, class:"items-text", id:"item-name", placeholder:"115 / 75", maxlength:"10" %>
-            
+            <%= f.text_field :sbp, class:"items-text", id:"item-name", placeholder:"115", maxlength:"10" %>
+
+          <div class="weight-bold-text">
+              最低血圧
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :dbp, class:"items-text", id:"item-name", placeholder:"75", maxlength:"10" %> 
 
           <%# 服薬 %>
             <div class="weight-bold-text">

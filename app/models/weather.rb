@@ -5,7 +5,7 @@ class Weather < ActiveHash::Base
     { id: 3, name: '曇り☁︎' },
     { id: 4, name: '雨☔︎' },
     { id: 5, name: '雪❄︎' },
-    { id: 6, name: 'その他⚡︎' }
+    { id: 6, name: 'その他' }
   ]
   include ActiveHash::Associations
   has_many :notes

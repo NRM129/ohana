@@ -2,17 +2,17 @@ class NotesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :set_time, only: [:index, :show]
+  before_action :move_to_index, only: [:edit, :destroy]
 
 
   def index
-    # binding.pry
-    # @notes = Note.all
     @first_note_date = Note.order(record_date: :DESC).first
-    @notes = Note.order(record_date: :DESC)
+    @notes = Note.page(params[:page]).per(4).order(record_date: :DESC)
   end
 
   def new
     @note = Note.new
+    @user = User.select(:facility_user)
   end
 
   def create
@@ -20,7 +20,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to root_path
     else
-      render :new_note_path
+      render :new
     end
   end
 
@@ -50,8 +50,8 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:image, :record_date, :weather_id, :responsible_person, :utilization_time, :body_temperature, :pulse,
-                                 :blood_pressure, :taking_medicine_id, :usage_type_id, :bathing_id, :diary).merge(user_id: current_user.id)
+    params.require(:note).permit(:facility_user, :image, :record_date, :weather_id, :responsible_person, :utilization_time, :body_temperature, :pulse,
+                                 :sbp, :dbp, :taking_medicine_id, :usage_type_id, :bathing_id, :diary).merge(user_id: current_user.id)
   end
 
 
@@ -61,6 +61,11 @@ class NotesController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def move_to_index
+    return if user_signed_in?
+    redirect_to action: :index
   end
 
 end

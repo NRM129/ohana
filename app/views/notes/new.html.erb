@@ -17,6 +17,18 @@
       <%# 画像アップロード %>
       <div class="items-detail">
         <div class="form">
+          <%# 利用者様名選択 %>
+          <div class="weight-bold-text">
+            利用者様名の選択
+            <span class="indispensable">必須</span>
+          </div>
+          <%#= f.collection_select(:facility_user, User.all, :id, :facility_user, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>  <%# id数値で保存したい場合 %>
+           <%#= f.collection_select(:facility_user, User.all, :facility_user, :name, {}, {class: "select-box", id: "item-shipping-fee-status"}) %> 
+           <%= f.collection_select(:facility_user, User.where.not(id: 1), :facility_user, :name, {}, {class: "select-box", id: "item-shipping-fee-status"}) %>
+
+
+
+
 
           <%# 担当者 %>
           <div class="weight-bold-text">
@@ -76,11 +88,16 @@
 
           <%# 血圧 %>
           <div class="weight-bold-text">
-              血圧
+              最高血圧
               <span class="indispensable">必須</span>
             </div>
-            <%= f.text_field :blood_pressure, class:"items-text", id:"item-name", placeholder:"115 / 75", maxlength:"10" %>
-            
+            <%= f.text_field :sbp, class:"items-text", id:"item-name", placeholder:"115", maxlength:"10" %>
+          
+          <div class="weight-bold-text">
+              最低血圧
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :dbp, class:"items-text", id:"item-name", placeholder:"75", maxlength:"10" %>
 
           <%# 服薬 %>
             <div class="weight-bold-text">

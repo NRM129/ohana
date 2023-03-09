@@ -1,6 +1,4 @@
 <body>
-<%# <div class='body--whole'> %>
-
   <div class='main--title'>
     <div class='top-title'>
       A FEELING OF CARING FOR OTHERS
@@ -8,16 +6,6 @@
     <div class='sub-title'>
       <%= link_to image_tag("ohana-logo-mark.png", class:"ohana-icon"), "/" %>
       O H A N A
-    </div>
-    <div class='dates'>
-    today's
-      <div class='date_day'>
-        <%= @time.day %>
-      </div>
-      <div class='date_year'>
-        <%= @time.year %>.<%= @time.month %>
-      </div>
-    </div>
     </div>
   </div>
 
@@ -28,26 +16,24 @@
 <%# 最新連絡ノート  %>
   <div class='main'>
     <div class='content-note-title'>
-      <hr class="cp_hr04" />
       <div class='title'>新着ノート</div>
-      <hr class="cp_hr04" />
     </div>
     <%# 画像  %>
     <div class='main-btm'>
-    <% if @first_note_date.present? %>
-      <div class='content-note-img'>
-        <% if @first_note_date.image.present? %>
-          <%= image_tag @first_note_date.image, class: "first-note-img" %>
-        <% else %>
-          <%= image_tag "no-image.jpg", class: "first-note-img" %>
-        <% end %>
-      </div>
+      <% if user_signed_in? && @first_note_date.present? && (current_user.id == 1 || current_user.facility_user == @notes.first.facility_user) %>
+        <div class='content-note-img'>
+          <% if @first_note_date.image.present? %>
+            <%= image_tag @first_note_date.image, class: "first-note-img" %>
+          <% else %>
+            <%= image_tag "no-image.jpg", class: "first-note-img" %>
+          <% end %>
+        </div>
       <%# 画像  %>
 
       <div class='content-note-diary'>
           <%# 日付 %>
           <div class='content-note-diary-date'>
-            <%= @first_note_date.record_date.month %> / <%= @first_note_date.record_date.day %>
+            <%= @first_note_date.record_date.month %>月 <%= @first_note_date.record_date.day %>日
           </div>
           <%# 日付 %>
 
@@ -59,7 +45,7 @@
               <td>体温</td>
             </tr>
             <tr bgcolor="white">
-                <td><%= @first_note_date.utilization_time.hour %>:<%= @first_note_date.utilization_time.min %></td>
+                <td><%= @first_note_date.utilization_time.strftime('%H:%M').sub(/^0/, '') %></td>
                 <td><%= @first_note_date.usage_type.name %></td>
                 <td><%= @first_note_date.body_temperature %>°</td>
             </tr>
@@ -104,17 +90,17 @@
             </tr>
             <tr bgcolor="white">
                 <td><%= @time.hour %>:<%= @time.min %></td>
-                <td>見本</td>
-                <td>見本</td>
+                <td>サンプル</td>
+                <td>サンプル</td>
             </tr>
           </table>
 
           <table width="100%" height="70%", class="tb_first">
             <tr bgcolor="#f5f5f5" height="30">
-              <td>担当者： 見本</td>
+              <td>担当者： サンプル</td>
             </tr>
             <tr bgcolor="white">
-                <td valign="top" class="tb_text">見本</td>
+                <td valign="top" class="tb_text">サンプル</td>
             </tr>
           </table>
           <%# 表 %>
@@ -126,7 +112,6 @@
         </div>
       <% end %>
     </div>
-  </div>
     <%# 最新連絡ノート  %>
 
 
@@ -134,10 +119,9 @@
 
   <%# 連絡ノート一覧  %>
   <div class='note-contents'>
-    <hr class="cp_hr04" />
       <div class='title'>過去一覧</div>
-      <hr class="cp_hr04" />
-    <% if @notes.present? %>
+        <%= paginate(@notes) %>
+    <% if user_signed_in? && @notes.present? && (current_user.id == 1 || current_user.facility_user == @notes.first.facility_user) %>
       <ul class='note-lists'>
         <% @notes.order(record_date: :desc).each do |note| %>
           <%# データがある時  %>
@@ -166,7 +150,7 @@
                         
                     </tr>
                     <tr bgcolor="white">
-                        <td valign="top" class="tb_text"><%= note.diary.truncate(200, omission: '~~~') %>
+                        <td valign="top" class="tb_text"><%= note.diary.truncate(80, omission: '.....') %>
                     </tr>
                   </table>
                 </div>
@@ -200,7 +184,7 @@
       </ul>
   </div>
   <%# 連絡ノート  %>
-  
+  </div>  
 </body>
   <footter class="footter">
   <%= render "shared/footter" %>

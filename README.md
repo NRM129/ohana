@@ -1,3 +1,18 @@
+# アプリケーション名
+　OHANA
+
+##　アプリケーション概要
+連絡ノートをWEB化にする事で、場所を選ばずタイムリーに確認が可能になる。
+
+### URL
+
+#### テスト用アカウント
+
+#### 利用方法
+
+
+
+
 # テーブル設計
 
 ## users テーブル
@@ -9,8 +24,10 @@
 | encrypted_password      | string    | null: false       |df
 | phone_number            | string    | null: false       |
 | birthday                | date      | null: false       |
-| blood_type_id           | integer   | null: false       |
-| start_date              | date      | null: false       |
+| blood_type              | integer   | null: false       |
+| start_date              | date      |                   |
+| facility_user           | date      | null: false       |
+| admin         　　　　　  | boolean　 | 　　　　　　　       |
 
 
 ### Association

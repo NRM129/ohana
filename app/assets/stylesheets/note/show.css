@@ -4,14 +4,12 @@
 }
 
 .show-whole{
-  padding: 0 15%;
+  padding: 0 15% 50px;
 }
 
 .note-show-img{
   width: 80%;
 }
-
-
 
 .note-box-img {
 height: 35vh;
@@ -72,7 +70,8 @@ table {
   border: 2px solid #fff;
   padding: 8px 20px;
   color: #fff;
-  background-color: #ff533d;
+  /* background-color: #ff533d; */
+  background-color: rgba(47, 23, 15, 0.5);
   border-radius: 20px;
   text-decoration: none;
   width: 20px;
@@ -82,7 +81,8 @@ table {
   border: 2px solid #fff;
   padding: 8px 20px;
   color: #fff;
-  background-color: #ff533d;
+  /* background-color: #ff533d; */
+  background-color: rgba(47, 23, 15, 0.5);
   border-radius: 20px;
   text-decoration: none;
   width: 20px;
@@ -91,6 +91,32 @@ table {
 
 
   /* ご家族コメント */
+
+  .container{
+    text-align: center;
+  }
+  
 .textarea{
   width: 100%;
+}
+
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 15pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 10px 8px;   /* 余白       */
+  background    : #000066;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #000066;    /* 枠の指定 */
+}
+
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 }

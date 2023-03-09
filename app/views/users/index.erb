@@ -1,0 +1,50 @@
+<%= render "shared/second-header"%>
+  <header class="header">
+   <%= render "shared/header" %>
+  </header>
+
+
+<%# 全体 %>
+<div class="admin__note-show-whole">
+   <%# 連絡ノート一覧  %>
+  <div class='admin__note-contents'>
+    <% if user_signed_in? && current_user.id == 1 %>
+     <table class="admin__note-table">
+  <thead>
+    <tr class="admin__tr">
+      <th>記録日</th>
+      <th>記入者</th>
+      <th>利用者様</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notes.order(record_date: :desc).each do |note| %>
+      <tr>
+        <td class="admin__td"><%= link_to note_path(note.id) do %><%= note.record_date %><% end %></td>
+        <td class="admin__td"><%= note.responsible_person %></td>
+        <td class="admin__td"><%= note.facility_user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate(@notes) %>
+    <% else %> 
+      <ul class='note-lists'>
+          <%# データがない時  %>
+          <li class='list'>
+              <div class='note-img-contents'>
+                <div class='note-img-content'>
+                    <%= image_tag "no-image.jpg", class: "note-img" %>
+                </div>
+              </div>
+          </li>
+          <%# データがない時 %>
+    <% end %>
+      </ul>
+  </div>
+  <%# 連絡ノート  %>    
+
+
+
+</div>
+<%= render "shared/second-footer" %>
