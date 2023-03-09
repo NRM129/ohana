@@ -1,18 +1,23 @@
 .prf__whole{
-  width: 30%;
-  margin-right: 35px;
+  width: 30vw;
+}
+
+.user_note-show-whole{
+  width: 100vw;
+  background-color: #FFFFF0;
+  padding: 25px;
 }
 
 .note-show-whole-top {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 30px;
 }
 
 .user_show_tbr {
-  width: 100%;
+  width: 25vw;
   max-width: 500px; /* adjust the maximum width as needed */
-  margin-bottom: 20px;
   border-collapse: collapse;
 }
 
@@ -27,7 +32,50 @@
   border: 1px solid #ccc;
 }
 
-.chart-class {
-  max-width: 500px; /* adjust the maximum width as needed */
-  width: 100%;
+.body_temperature-chart-class {
+  width: calc((100vw - 30vw)/2);
+  height: 300px;;
+}
+
+.pulse-chart-class {
+  width: 500px;width: calc((100vw - 30vw)/2);
+  height: 300px;
+}
+
+/* アルバム  */
+.show_title{
+  font-size: 2.4rem;
+  white-space: nowrap;
+  font-weight: 600;
+  text-align: center;
+  color: #503b30;
+  margin: 40px auto 5px;
+}
+
+.show-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.show-note-img-contents {
+  position: relative;
+}
+
+.show-note-img-content-date {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.show-note-img {
+  width: 30vh;
+  height: 30vh;
 }

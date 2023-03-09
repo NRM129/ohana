@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2023_03_01_033154) do
     t.string "facility_user", null: false
     t.string "phone_number", null: false
     t.date "birthday", null: false
-    t.integer "blood_type_id", null: false
+    t.string "blood_type", null: false
     t.date "start_date"
     t.boolean "admin"
     t.string "reset_password_token"

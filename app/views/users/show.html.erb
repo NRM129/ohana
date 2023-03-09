@@ -4,7 +4,7 @@
   </header>
 
 <%# 全体 %>
-<div class="note-show-whole">
+<div class="user_note-show-whole">
   <%# ご利用者情報 %>
   <div class="note-show-whole-top">
     <div class="prf__whole">
@@ -22,11 +22,11 @@
       </tr>
       <tr>
           <th class="user_show_th" scope="row">生年月日</th>
-          <td class="user_show_tb" ><%= @user.birthday %></td>
+          <td class="user_show_tb" ><%= @user.birthday.strftime("%Y年%-m月%-d日") %></td>
       </tr>
       <tr>
           <th class="user_show_th" scope="row">血液型</th>
-          <td class="user_show_tb" ><%= @user.blood_type_id %></td>
+          <td class="user_show_tb" ><%= @user.blood_type %></td>
       </tr>
       <tr>
             <th class="user_show_th" scope="row">緊急連絡先</th>
@@ -34,15 +34,72 @@
         </tr>
           <tr>
             <th class="user_show_th" scope="row">利用開始日</th>
-            <td class="user_show_tb" ><%= @user.start_date %></td>
+            <td class="user_show_tb" ><%= @user.start_date.strftime("%Y年%-m月%-d日") %></td>
         </tr>
     </table>
     </div>
     <%# グラフ %>
-    <div class="chart-class">
-      <%= line_chart Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :body_temperature), xtitle: '利用日', ytitle: '体温', min: 33, max: 45, class: 'my-chart-class' %>
+    <%# データがある時  %>
+    <% if user_signed_in? && @notes.present? && (current_user.id == 1 || current_user.facility_user == @notes.first.facility_user) %>
+      <div class="body_temperature-chart-class">
+        <%= line_chart Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :body_temperature), ytitle: '体温', min: 33, max: 45, class: 'body_temperature-chart', colors: ['#ff6384'], background_color: '#fff', library: { animation: { startup: true, easing: 'linear', duration: 1000 } } %>
+      </div>
+      <div class="pulse-chart-class">
+        <%= line_chart Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :pulse), ytitle: '脈拍', min: 70, max: 150, class: 'pulse-chart', colors: ['#3466CC'], background_color: '#fff', library: { animation: { startup: true, easing: 'linear', duration: 1000 } } %>
+      </div>
+    <% else %> 
+    <%# データがない時  %>
+    <div class="body_temperature-chart-class">
+    <%= line_chart [], ytitle: '体温', min: 33, max: 45, class: 'body_temperature-chart', colors: ['#ff6384'], background_color: '#fff', library: { animation: { startup: true, easing: 'linear', duration: 1000 } } %>
     </div>
+    <% end %> 
   </div>
+
+    <%# 連絡ノート一覧  %>
+  <div class='note-contents'>
+      <div class='show_title'>写真一覧</div>
+    <% if user_signed_in? && @notes.present? && (current_user.id == 1 || current_user.facility_user == @notes.first.facility_user) %>
+      <ul class='note-lists'>
+        <% @notes.order(record_date: :desc).each do |note| %>
+          <%# データがある時  %>
+          <li class='show-list'>
+            <%= link_to note_path(note.id) do %>
+            <div class='show-note-img-contents'>
+              <%# 日付  %>
+              <div class='show-note-img-content-date'>
+                <%= note.record_date.month %>月<%= note.record_date.day %>日<br>
+              </div>
+              <%# 日付  %>
+              <div class='show-note-img-content'>
+                <% if note.image.present? %>
+                  <%= image_tag note.image, class: "show-note-img" %>
+                <% else %>
+                  <%= image_tag "no-image.jpg", class: "show-note-img" %>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <%= paginate (@notes) %>
+      <%# データがある時  %>
+    <% else %> 
+      <%# データがない時  %>
+      <ul class='note-lists'>
+        <li class='list'>
+            <div class='note-img-contents'>
+              <div class='note-img-content'>
+                  <%= image_tag "no-image.jpg", class: "note-img" %>
+              </div>
+            </div>
+        </li>
+      </ul>
+    <% end %>
+    <%# データがない時 %>
+
+  </div>
+  <%# 連絡ノート  %>
 
 </div>
 <%= render "shared/second-footer" %>

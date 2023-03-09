@@ -51,7 +51,7 @@
         <tr bgcolor="white">
             <td><%= @note.facility_user %>
             <td><%= @note.responsible_person %>
-            <td><%= @note.utilization_time.hour %>:<%= @note.utilization_time.min %></td>
+            <td><%= @note.utilization_time.strftime('%H:%M').sub(/^0/, '') %></td>
             <td><%= @note.usage_type.name %></td>
             <td><%= @note.body_temperature %></td>
             <td><%= @note.pulse %></td>

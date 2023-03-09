@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   def show
     # binding.pry
     # @note = Note.find(params[:id])
-    @notes = Note.order(record_date: :DESC)
+    @notes = Note.page(params[:page]).per(10).order(record_date: :DESC)
+    # @notes = Note.order(record_date: :DESC)
     @user = User.find(params[:id])
   end
 end

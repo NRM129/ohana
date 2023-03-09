@@ -1,6 +1,6 @@
 class Note < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  include Chartkick::Model
+  # include Chartkick::Model
   belongs_to :weather
   belongs_to :usage_type
   belongs_to :taking_medicine

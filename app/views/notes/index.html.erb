@@ -45,7 +45,7 @@
               <td>体温</td>
             </tr>
             <tr bgcolor="white">
-                <td><%= @first_note_date.utilization_time.hour %>:<%= @first_note_date.utilization_time.min %></td>
+                <td><%= @first_note_date.utilization_time.strftime('%H:%M').sub(/^0/, '') %></td>
                 <td><%= @first_note_date.usage_type.name %></td>
                 <td><%= @first_note_date.body_temperature %>°</td>
             </tr>
