@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show]
+  before_action :exclusive_page, only: [:index]
   before_action :move_to_index, only: [:show]
 
   
   def index
+    @users = User.all
     @q = Note.ransack(params[:q])
     @notes = @q.result(distinct: true).order(record_date: :desc).page(params[:page]).per(31)
   end
@@ -14,6 +16,13 @@ class UsersController < ApplicationController
   end
 end
 
+
+  def exclusive_page
+    @users = User.all
+    if current_user.id != 1
+    redirect_to root_path
+    end
+  end
 
   def move_to_index
     @user = User.find(params[:id])

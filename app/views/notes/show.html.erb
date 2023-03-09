@@ -23,7 +23,7 @@
     <div class="show-whole">
       <div class="note-contents-top">
           <div class="note-record-weather">
-          <%= @note.record_date %> <%# 利用日 %>
+          <%= @note.record_date.strftime('%Y年%m月%d日') %> <%# 利用日 %>
           <%= @note.weather.name %> <%# 天気予報 %>
         </div>
         <%# 編集・削除 %>
