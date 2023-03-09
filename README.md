@@ -1,91 +1,48 @@
 # アプリケーション名
-　OHANA
+OHANA
 
-##　アプリケーション概要
+# アプリケーション概要
 連絡ノートをWEB化にする事で、場所を選ばずタイムリーに確認が可能になる。
 
-### URL
-
-#### テスト用アカウント
-
-#### 利用方法
+# URL
+https://ohana.onrender.com
 
 
+# テスト用アカウント
+・BASIC認証ID　：
+・BASIC認証パスワード　：
+・管理者(施設)ID　：
+・管理用(施設)パスワード　：
+・利用者①ID　：
+・利用者①パスワード　：
+・利用者②ID　：
+・利用者②パスワード　：
 
 
-# テーブル設計
+# 利用方法
+## ノート記入（管理者）
+ 1.トップページのヘッダーからユーザー新規登録を行う。
+ 2.ヘッダーのノート記入ボタンから、各項目を入力し投稿する。
 
-## users テーブル
+## ノート記入（利用者）
+ 1.トップページから見たい日記をクリックして詳細ページを確認する。
+ 2.詳細ページから、必要に応じてコメントをする。
+ 3.ヘッダーのマイページをクリックすると、登録情報や過去の日記のデータ・バイタルのグラフが確認できる。
 
-| Column                  | Type      | Options           |
-| ----------------------- | --------- | ----------------- |
-| name                    | string    | null: false       |
-| email                   | string    | unique: true 　　　|df
-| encrypted_password      | string    | null: false       |df
-| phone_number            | string    | null: false       |
-| birthday                | date      | null: false       |
-| blood_type              | integer   | null: false       |
-| start_date              | date      |                   |
-| facility_user           | date      | null: false       |
-| admin         　　　　　  | boolean　 | 　　　　　　　       |
+# アプリケーションを作成した背景
 
+# 洗い出した要件
 
-### Association
+# 実装した機能についての画像やGIFおよびその説明
 
-- has_many :notes
-- has_many :comments
+# 実装予定の機能
 
+# データベース設計
 
-## notes テーブル
+# 画面遷移図
 
-| Column                    | Type       | Options                        |
-| ------------------------- | ---------- | ------------------------------ |
-| record_date               | date       | null: false                    |
-| weather_id                | integer    | null: false                    |
-| responsible_person        | string     | null: false                    |
-| utilization_time          | time       | null: false                    |
-| body_temperature          | integer    |                                |
-| pulse                     | integer    |                                |
-| blood_pressure            | integer    |                                |
-| taking_medicine           | integer    | null: false                    |
-| usage_type_id             | string     | null: false                    |
-| bathing                   | string     | null: false                    |
-| diary                     | text       | null: false                    |
-| user                      | references | null: false, foreign_key: true |
+# 開発環境
 
-### Association
+# ローカルでの動作方法
 
-- belongs_to :user
-- has_many :comments
-- has_one_attached :image
-
-
-## comments テーブル
-
-| Column                    | Type       | Options                        |
-| ------------------------- | ---------- | ------------------------------ |
-| content                   | text       |                                |
-| user                      | references | null: false, foreign_key: true |
-| note                      | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :note
-
-
-
-## ActiveHash
-
-| active_storage      | 
-| ------------------- | 
-| image               | 
-
-
-## ActiveHash
-
-| model               | 
-| ------------------- | 
-| blood_type          | 
-| weather             | 
-| Taking_medicine     |
+# 工夫したポイント

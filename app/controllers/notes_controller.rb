@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :basic_auth
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :set_time, only: [:index, :show]
@@ -48,6 +49,12 @@ class NotesController < ApplicationController
 
 
   private
+
+  def basic_auth
+      authenticate_or_request_with_http_basic do |username, password|
+        username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
+    end
+  end
 
   def note_params
     params.require(:note).permit(:facility_user, :image, :record_date, :weather_id, :responsible_person, :utilization_time, :body_temperature, :pulse,
