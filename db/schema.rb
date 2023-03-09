@@ -51,9 +51,10 @@ ActiveRecord::Schema.define(version: 2023_03_01_033154) do
     t.integer "weather_id", null: false
     t.string "responsible_person", null: false
     t.time "utilization_time", null: false
-    t.float "body_temperature"
-    t.integer "pulse"
-    t.integer "blood_pressure"
+    t.float "body_temperature", null: false
+    t.integer "pulse", null: false
+    t.integer "dbp", null: false
+    t.integer "sbp", null: false
     t.integer "taking_medicine_id", null: false
     t.integer "usage_type_id", null: false
     t.integer "bathing_id", null: false

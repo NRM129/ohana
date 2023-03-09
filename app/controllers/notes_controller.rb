@@ -6,22 +6,16 @@ class NotesController < ApplicationController
 
 
   def index
-    # binding.pry
-    # @notes = Note.all
     @first_note_date = Note.order(record_date: :DESC).first
-    # @notes = Note.order(record_date: :DESC)
     @notes = Note.page(params[:page]).per(4).order(record_date: :DESC)
   end
 
   def new
-    # binding.pry
     @note = Note.new
     @user = User.select(:facility_user)
-    # @users = User.pluck(:facility_user, :id)
   end
 
   def create
-    # binding.pry
     @note = Note.new(note_params)
     if @note.save
       redirect_to root_path
@@ -57,7 +51,7 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:facility_user, :image, :record_date, :weather_id, :responsible_person, :utilization_time, :body_temperature, :pulse,
-                                 :blood_pressure, :taking_medicine_id, :usage_type_id, :bathing_id, :diary).merge(user_id: current_user.id)
+                                 :sbp, :dbp, :taking_medicine_id, :usage_type_id, :bathing_id, :diary).merge(user_id: current_user.id)
   end
 
 

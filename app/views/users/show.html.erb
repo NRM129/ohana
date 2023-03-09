@@ -45,7 +45,8 @@
         <%= line_chart Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :body_temperature), ytitle: '体温', min: 33, max: 45, class: 'body_temperature-chart', colors: ['#ff6384'], background_color: '#fff', library: { animation: { startup: true, easing: 'linear', duration: 1000 } } %>
       </div>
       <div class="pulse-chart-class">
-        <%= line_chart Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :pulse), ytitle: '脈拍', min: 70, max: 150, class: 'pulse-chart', colors: ['#3466CC'], background_color: '#fff', library: { animation: { startup: true, easing: 'linear', duration: 1000 } } %>
+        <%= line_chart [{name: '脈拍', data: Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :pulse)}, {name: '最高血圧', data: Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :sbp)}, {name: '最低血圧', data: Note.order(:record_date).pluck("date_format(record_date, '%m/%d')", :dbp)}], ytitle: '数値', min: 70, max: 150, class: 'pulse-chart', colors: ['#3466CC', '#FFA500', '#228B22'], background_color: '#fff', library: { animation: { startup: true, easing: 'linear', duration: 1000 } } %>
+
       </div>
     <% else %> 
     <%# データがない時  %>

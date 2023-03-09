@@ -44,7 +44,8 @@
           <td scope="col">利用種類</td>
           <td scope="col">体温</td>
           <td scope="col">脈拍</td>
-          <td scope="col">血圧</td>
+          <td scope="col">最高血圧</td>
+          <td scope="col">最低血圧</td>
           <td scope="col">服薬</td>
           <td scope="col">入浴</td> 
         </tr>
@@ -55,7 +56,8 @@
             <td><%= @note.usage_type.name %></td>
             <td><%= @note.body_temperature %></td>
             <td><%= @note.pulse %></td>
-            <td><%= @note.blood_pressure %></td>
+            <td><%= @note.sbp %></td>
+            <td><%= @note.dbp %></td>
             <td><%= @note.taking_medicine.name %></td>
             <td><%= @note.bathing.name %></td>
         </tr>
