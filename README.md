@@ -42,7 +42,7 @@ https://ohana.onrender.com
 社会問題の解消にも繋がると考え、アプリケーションの開発を行った。<br><br>
 
 
-【実際のノート】
+【実際のノート】<br>
 [![Image from Gyazo](https://i.gyazo.com/9857e6a86ea4e9e54af302d85c1925b3.png)](https://gyazo.com/9857e6a86ea4e9e54af302d85c1925b3)
 <br><br>
 
