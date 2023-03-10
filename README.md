@@ -43,7 +43,7 @@ https://ohana.onrender.com
 
 
 【実際のノート】<br>
-[![Image from Gyazo](https://i.gyazo.com/9857e6a86ea4e9e54af302d85c1925b3.png)](https://gyazo.com/9857e6a86ea4e9e54af302d85c1925b3)
+[![Image from Gyazo](https://i.gyazo.com/fea5796363763d022fc6a9f0ed463510.png)](https://gyazo.com/fea5796363763d022fc6a9f0ed463510)
 <br><br>
 
 # 洗い出した要件
