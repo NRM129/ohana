@@ -34,7 +34,7 @@
         </tr>
           <tr>
             <th class="user_show_th" scope="row">利用開始日</th>
-            <td class="user_show_tb" ><%= @user.start_date.strftime("%Y年%-m月%-d日") %></td>
+            <td class="user_show_tb" ><%= @user.start_date ? @user.start_date.strftime("%Y年%-m月%-d日") : "--年--月--日" %></td>
         </tr>
     </table>
     </div>

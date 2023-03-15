@@ -30,6 +30,7 @@
 .user_show_tb {
   padding: 8px;
   border: 1px solid #ccc;
+  background-color: white;
 }
 
 .body_temperature-chart-class {

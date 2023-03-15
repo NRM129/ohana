@@ -11,10 +11,15 @@ class User < ApplicationRecord
   has_many :notes
   has_many :comments
 
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates :password, format: { with: VALID_PASSWORD_REGEX, message: "は半角英数を両方含む必要があります"}
+
   with_options presence: true do
-    # 電話番号
     validates :phone_number, format: { with: /\A[0-9]{10,11}\z/ }
+    validates :birthday
+    validates :blood_type
   end
+
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ } do
     validates :name
