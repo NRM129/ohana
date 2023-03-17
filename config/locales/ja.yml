@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: お名前
+        birthday: 生年月日
+        phone_number: 電話番号(緊急連絡先)
+        facility_user: 利用者様のお名前
+        start_date: 利用開始日
+
+      note:
+        # text: テキスト
+        image: 画像
+        facility_user: 利用者
+        responsible_person: 担当者
+        usage_type_id: 利用種類
+        record_date: 利用日
+        utilization_time: 利用時間
+        weather_id: 天候
+        body_temperature: 体温
+        pulse: 脈拍
+        dbp: 最低血圧
+        sbp: 最高血圧
+        taking_medicine_id: 服薬
+        bathing_id: 入浴
+        diary: コメント
+
+  activemodel:
+    attributes:
+      order_payment:
+        post_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        address: 番地
+        phone_number: 電話番号
+        token: クレジットカード情報

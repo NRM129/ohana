@@ -5,6 +5,7 @@
   <%# <div class='form-wrap'> %>
     <div class="note-sell-main">
       <%= form_with model: @note, local: true do |f| %>
+       <%= render 'shared/error_messages', model: f.object %>
       <%# 画像アップロード %>
         <div class="img-upload">
           <div class="weight-bold-text">
@@ -39,7 +40,7 @@
           
           <%# 利用種類 %>
           <div class="weight-bold-text">
-            ご利用種類
+            利用種類
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:usage_type_id, UsageType.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>

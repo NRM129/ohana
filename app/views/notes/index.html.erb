@@ -89,7 +89,7 @@
               <td>体温</td>
             </tr>
             <tr bgcolor="white">
-                <td><%= @time.hour %>:<%= @time.min %></td>
+                <td><%= @time.strftime('%H:%M').sub(/^0/, '') %></td>
                 <td>サンプル</td>
                 <td>サンプル</td>
             </tr>
