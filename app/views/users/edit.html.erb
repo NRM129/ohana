@@ -1,0 +1,43 @@
+<%= render "shared/second-header"%>
+  <header class="header">
+   <%= render "shared/header" %>
+  </header>
+
+<%# 全体 %>
+<div class="user_note-show-whole">
+  <%# ご利用者情報 %>
+  <div class="note-show-whole-top">
+    <div class="prf__whole">
+    <table class="user_show_tbr">
+      <tr>
+        <th class="user_show_th" colspan="2" scope="col">ご利用情報</th>
+      </tr>
+      <tr>
+          <th class="user_show_th" scope="row">利用者様家族名</th>
+          <td class="user_show_tb" ><%= @user.name %></td>
+      </tr>
+      <tr>
+          <th class="user_show_th" scope="row">利用者様名</th>
+          <td class="user_show_tb" ><%= @user.facility_user %></td>
+      </tr>
+      <tr>
+          <th class="user_show_th" scope="row">生年月日</th>
+          <td class="user_show_tb" ><%= @user.birthday.strftime("%Y年%-m月%-d日") %></td>
+      </tr>
+      <tr>
+          <th class="user_show_th" scope="row">血液型</th>
+          <td class="user_show_tb" ><%= @user.blood_type %></td>
+      </tr>
+      <tr>
+            <th class="user_show_th" scope="row">緊急連絡先</th>
+            <td class="user_show_tb" ><%= @user.phone_number %></td>
+        </tr>
+          <tr>
+            <th class="user_show_th" scope="row">利用開始日</th>
+            <td class="user_show_tb" ><%= @user.start_date ? @user.start_date.strftime("%Y年%-m月%-d日") : "--年--月--日" %></td>
+        </tr>
+    </table>
+    </div>
+  </div>
+</div>
+<%= render "shared/second-footer" %>

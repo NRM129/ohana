@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show]
+  before_action :authenticate_user!, only: [:index, :show, :edit]
   before_action :exclusive_page, only: [:index]
-  before_action :move_to_index, only: [:show]
+  before_action :move_to_index, only: [:show, :edit]
 
   
   def index
@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   
   def show
     @notes = Note.page(params[:page]).per(10).order(record_date: :DESC)
+    @user = User.find(params[:id])
+  end
+
+  def edit
     @user = User.find(params[:id])
   end
 end

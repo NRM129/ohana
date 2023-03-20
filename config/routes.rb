@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :notes do
     resources :comments, only: :create
   end
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit]
 
   # collection do
   #   match 'search' => 'notes#index', via: [:get, :post], as: :search

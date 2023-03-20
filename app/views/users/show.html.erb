@@ -10,7 +10,10 @@
     <div class="prf__whole">
     <table class="user_show_tbr">
       <tr>
-        <th class="user_show_th" colspan="2" scope="col">ご利用情報</th>
+        <th class="user_show_th" colspan="2" scope="col">ご利用情報
+          <% if current_user.facility_user == @user.facility_user %>
+            <%= link_to "編集", edit_user_path(@user.id), method: :get, class: "user_edit" %>
+          <% end %></th>
       </tr>
       <tr>
           <th class="user_show_th" scope="row">利用者様家族名</th>
