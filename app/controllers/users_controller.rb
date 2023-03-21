@@ -18,8 +18,22 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-end
 
+  def update
+    if @user.update(user_params)
+      redirect_to note_path
+    else
+      render :edit
+    end
+  end
+
+
+
+private
+
+def note_params
+  params.require(:user).permit(:name, :email, :facility_user, :phone_number, :birthday, :blood_type, :start_date,).merge(user_id: current_user.id)
+end
 
   def exclusive_page
     @users = User.all
@@ -32,5 +46,7 @@ end
     @user = User.find(params[:id])
     if current_user.facility_user != @user.facility_user
       redirect_to root_path
+    end
   end
+
 end

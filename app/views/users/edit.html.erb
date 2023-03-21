@@ -1,43 +1,98 @@
 <%= render "shared/second-header"%>
-  <header class="header">
-   <%= render "shared/header" %>
-  </header>
 
-<%# 全体 %>
-<div class="user_note-show-whole">
-  <%# ご利用者情報 %>
-  <div class="note-show-whole-top">
-    <div class="prf__whole">
-    <table class="user_show_tbr">
-      <tr>
-        <th class="user_show_th" colspan="2" scope="col">ご利用情報</th>
-      </tr>
-      <tr>
-          <th class="user_show_th" scope="row">利用者様家族名</th>
-          <td class="user_show_tb" ><%= @user.name %></td>
-      </tr>
-      <tr>
-          <th class="user_show_th" scope="row">利用者様名</th>
-          <td class="user_show_tb" ><%= @user.facility_user %></td>
-      </tr>
-      <tr>
-          <th class="user_show_th" scope="row">生年月日</th>
-          <td class="user_show_tb" ><%= @user.birthday.strftime("%Y年%-m月%-d日") %></td>
-      </tr>
-      <tr>
-          <th class="user_show_th" scope="row">血液型</th>
-          <td class="user_show_tb" ><%= @user.blood_type %></td>
-      </tr>
-      <tr>
-            <th class="user_show_th" scope="row">緊急連絡先</th>
-            <td class="user_show_tb" ><%= @user.phone_number %></td>
-        </tr>
-          <tr>
-            <th class="user_show_th" scope="row">利用開始日</th>
-            <td class="user_show_tb" ><%= @user.start_date ? @user.start_date.strftime("%Y年%-m月%-d日") : "--年--月--日" %></td>
-        </tr>
-    </table>
+<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      会員情報編集
+    </h1>
+  </div>
+<div class="error-group">
+  <%= render 'shared/error_messages', model:f.object %>
+</div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">お名前(代表者)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :name, class:"input-default", id:"name", placeholder:"例) 田中 太郎", maxlength:"20" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">メールアドレス</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <p class='form-info-header'>
+  </div>
+  <div class="form-top-text">〜 利用者様情報 〜</div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">お名前</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :facility_user, class:"input-default", id:"name", placeholder:"例) 田中 太郎", maxlength:"20" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">電話番号(緊急連絡先)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :phone_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">生年月日</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :birthday,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
   </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">血液型</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class='input-name-wrap'>
+      <%= f.select :blood_type, options_for_select(["選択してください", "A型", "B型", "AB型", "O型", "不明"].map { |blood_type| [blood_type, blood_type, { disabled: blood_type == "選択してください" }] }), {}, class: "input-default", id: "blood_type" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">利用開始日</label>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :start_date,
+                    class:'select-birth',
+                    id:"start_date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
+  </div>
+  <div class='register-btn'><br><br>
+    <%= f.submit "編集" ,class:"register-red-btn" %>
+  </div>
 </div>
+<% end %>
+
 <%= render "shared/second-footer" %>
