@@ -6,10 +6,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: [:name, :facility_user, :phone_number, :birthday, :blood_type, :start_date])
-  end
-
-  protected
-  def update_resource(resource, params)
-    resource.update_without_password(params)
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: [:name, :facility_user, :phone_number, :birthday, :blood_type, :start_date])
   end
 end
