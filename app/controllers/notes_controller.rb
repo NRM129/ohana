@@ -2,6 +2,7 @@ class NotesController < ApplicationController
   before_action :basic_auth
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_time, only: [:index, :show]
   before_action :move_to_index, only: [:edit, :destroy]
 
 
