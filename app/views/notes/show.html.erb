@@ -23,13 +23,13 @@
     <div class="show-whole">
       <div class="note-contents-top">
           <div class="note-record-weather">
-          <%= @note.record_date.strftime('%Y年%m月%d日') %> <%# 利用日 %>
+          <%= @note.record_date.strftime('%Y年 %m月 %d日') %> <%# 利用日 %>
           <%= @note.weather.name %> <%# 天気予報 %>
         </div>
         <%# 編集・削除 %>
         <div class="change-content">
           <% if user_signed_in? && current_user.id == 1 %>
-            <%= link_to "商品の編集", edit_note_path(@note.id), method: :get, class: "note-change-btn" %>
+            <%= link_to "　編集　", edit_note_path(@note.id), method: :get, class: "note-change-btn" %>
             <%= link_to "　 削除 　",note_path(@note.id), method: :delete, class:"note-destroy-btn" %>
           <% end %>
         </div>
