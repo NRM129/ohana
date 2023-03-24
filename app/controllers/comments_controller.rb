@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def create
     comment =Comment.create(comment_params)
-    redirect_to "/notes/#{comment.note.id}"
+    render json:{comment: comment }
+    # redirect_to "/notes/#{comment.note.id}"
   end
 
   private

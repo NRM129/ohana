@@ -1,4 +1,4 @@
-function post (){
+function note (){
   const submit = document.getElementById("submit");
   submit.addEventListener("click", (e) => {
     e.preventDefault();
@@ -8,7 +8,10 @@ function post (){
     XHR.open("NOTE", "/notes", true);
     XHR.responseType = "json";
     XHR.send(formData);
+    XHR.onload = () => {
+      console.log(XHR.response);
+    };
   });
  };
  
- window.addEventListener('load', post);
+ window.addEventListener('load', note);
