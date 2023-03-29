@@ -15,3 +15,5 @@ function note (){
  };
  
  window.addEventListener('load', note);
+
+ 
