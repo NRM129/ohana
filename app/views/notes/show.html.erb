@@ -119,7 +119,14 @@
         <tr bgcolor="white" width="80" height="100">
             <th vAlign=top >
             <% @comments.each do |comment| %>
-              <%= comment.text %>
+              <div class="post">
+                <div class="post-date">
+                  日時：<%= comment.created_at %>
+                </div>
+                <div class="post-content">
+                  <%= comment.text %>
+                </div>
+              </div>
               <br>
             <% end %>
             </th>
@@ -132,9 +139,10 @@
         <% if user_signed_in? %>
           <%= form_with(model: [@note, @comment], local: true) do |form| %>
             <%= form.text_area :text, style: "width:100%", placeholder: "コメントはこちらに記入ください", rows: "8" %>
-            <%= form.submit "コメントする", class: 'button'
- %>
+            <%= form.submit "コメントする", id: "submit", class: 'button' %>
           <% end %>
+          <div id="list">
+          </div>
         <% else %>
             <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
             </strong>
